@@ -3620,11 +3620,11 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 
 
 /* =========================================================
-   SOLO v5.2 — PLUGIN STORE + STABLE CORE PATCH (2026-08-28)
-   Appended after the untouched original v5.2 stylesheet.
+   SOLO v5.2 — ISOLATED LUNA / STORE PATCH (2026-08-28)
+   Built from clean v5.2. Every Luna layout rule is contextual.
    ========================================================= */
 
-/* Themes / Install from URL. */
+/* THEMES: static label above the Install from URL input. */
 .MuiTextField-root.css-1vbfw84 { display:grid !important; grid-template-columns:minmax(0,1fr) !important; grid-template-rows:auto auto !important; row-gap:6px !important; }
 .MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root { position:static !important; grid-area:1 / 1 !important; display:block !important; margin:0 !important; padding:0 !important; transform:none !important; font-size:.875rem !important; line-height:1.25rem !important; color:var(--solo-text-secondary) !important; -webkit-text-fill-color:var(--solo-text-secondary) !important; pointer-events:none !important; }
 .MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root { grid-area:2 / 1 !important; margin:0 !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; }
@@ -3632,54 +3632,87 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline { border-color:rgba(255,255,255,.08) !important; }
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width:0 !important; }
 
-/* Installed Plugins header layout. */
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) { display:grid !important; grid-template-columns:minmax(0,1fr) auto auto auto auto auto !important; grid-template-rows:auto auto !important; align-items:center !important; column-gap:8px !important; row-gap:1px !important; width:100% !important; min-width:0 !important; height:auto !important; overflow:visible !important; box-sizing:border-box !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6 { grid-column:1 !important; grid-row:1 !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiSwitch-root { grid-column:2 !important; grid-row:1 / span 2 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column:3 !important; grid-row:1 / span 2 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column:4 !important; grid-row:1 / span 2 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Show settings"], .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Hide settings"] { grid-column:5 !important; grid-row:1 / span 2 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column:6 !important; grid-row:1 / span 2 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiSwitch-root,.MuiIconButton-root) { align-self:center !important; justify-self:center !important; margin:0 !important; transform:none !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiBox-root.css-i9gxme { display:none !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] { display:flex !important; grid-column:1 !important; grid-row:2 !important; align-items:center !important; justify-self:start !important; min-width:0 !important; min-height:16px !important; margin:0 !important; padding:0 !important; transform:none !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] .MuiAvatar-root, .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] :is(img,svg) { display:none !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] p { margin:0 !important; white-space:nowrap !important; font-size:.78rem !important; line-height:1rem !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) { color:rgba(255,255,255,.34) !important; opacity:1 !important; }
-.MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) :is(svg,path) { color:rgba(255,255,255,.34) !important; fill:currentColor !important; }
+/* INSTALLED PLUGINS ONLY: the direct switch identifies this header unambiguously. */
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root),
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) {
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto auto auto auto auto !important;
+    grid-template-rows:auto auto !important;
+    align-items:center !important;
+    column-gap:8px !important;
+    row-gap:1px !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    box-sizing:border-box !important;
+}
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6 { grid-column:1 !important; grid-row:1 !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6 > a,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiSwitch-root,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiSwitch-root { grid-column:2 !important; grid-row:1 / span 2 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Reload plugin"],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column:3 !important; grid-row:1 / span 2 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Enable live reloading (for development)"],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column:4 !important; grid-row:1 / span 2 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Show settings"],
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Hide settings"],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Show settings"],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Hide settings"] { grid-column:5 !important; grid-row:1 / span 2 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Uninstall plugin"],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column:6 !important; grid-row:1 / span 2 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiSwitch-root,.MuiIconButton-root),
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiSwitch-root,.MuiIconButton-root) { align-self:center !important; justify-self:center !important; margin:0 !important; transform:none !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiBox-root.css-i9gxme,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiBox-root.css-i9gxme { display:none !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author],
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] { display:flex !important; grid-column:1 !important; grid-row:2 !important; align-items:center !important; justify-self:start !important; min-width:0 !important; margin:0 !important; padding:0 !important; transform:none !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] .MuiAvatar-root,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] .MuiAvatar-root { display:none !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] p,
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > .MuiStack-root[author] p { margin:0 !important; white-space:nowrap !important; font-size:.78rem !important; line-height:1rem !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled),
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) { color:rgba(255,255,255,.34) !important; opacity:1 !important; }
+.css-1m2j012 > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) :is(svg,path),
+.css-1m2uggs > .MuiBox-root:first-child > .MuiStack-root.css-1mzerio:has(> .MuiSwitch-root) > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) :is(svg,path) { color:rgba(255,255,255,.34) !important; fill:currentColor !important; }
 
-/* Installed plugin expanded settings are a second outer card child. */
-.css-1m2j012, .css-1m2uggs { overflow:visible !important; height:auto !important; min-height:0 !important; max-height:none !important; }
-.css-1m2j012 > .MuiBox-root:nth-child(2), .css-1m2uggs > .MuiBox-root:nth-child(2) { display:block !important; width:100% !important; min-width:0 !important; max-width:100% !important; height:auto !important; max-height:none !important; overflow:visible !important; margin:12px 0 0 !important; padding:0 !important; box-sizing:border-box !important; }
-.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj, .css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj { display:flex !important; flex-direction:column !important; align-items:stretch !important; gap:8px !important; width:100% !important; min-width:0 !important; height:auto !important; max-height:none !important; overflow:visible !important; }
-.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k, .css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; align-items:center !important; column-gap:16px !important; min-width:0 !important; width:100% !important; height:auto !important; overflow:visible !important; }
-.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k > .MuiBox-root:first-child, .css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k > .MuiBox-root:first-child { min-width:0 !important; overflow-wrap:anywhere !important; }
-.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k > .MuiBox-root.css-i9gxme, .css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k > .MuiBox-root.css-i9gxme { display:flex !important; align-items:center !important; justify-content:center !important; margin:0 !important; }
+/* Expanded settings belong to installed cards only; retain compact card height otherwise. */
+.css-1m2j012:has(> .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj),
+.css-1m2uggs:has(> .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj) { height:auto !important; min-height:0 !important; overflow:visible !important; }
+.css-1m2j012 > .MuiBox-root:nth-child(2):has(.MuiStack-root.css-12qsudj),
+.css-1m2uggs > .MuiBox-root:nth-child(2):has(.MuiStack-root.css-12qsudj) { display:block !important; width:100% !important; min-width:0 !important; height:auto !important; overflow:visible !important; margin:12px 0 0 !important; padding:0 !important; }
+.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj,
+.css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-12qsudj { display:flex !important; flex-direction:column !important; align-items:stretch !important; gap:8px !important; width:100% !important; min-width:0 !important; }
+.css-1m2j012 > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k,
+.css-1m2uggs > .MuiBox-root:nth-child(2) .MuiStack-root.css-1xhj18k { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; align-items:center !important; column-gap:16px !important; min-width:0 !important; width:100% !important; }
 
-/* PLUGIN STORE: store headers have no switch and must never use installed-plugin grid rules. */
-.MuiStack-root.css-1mzerio:not(:has(> .MuiSwitch-root)) { display:flex !important; flex-direction:row !important; align-items:center !important; width:100% !important; min-width:0 !important; gap:8px !important; height:auto !important; min-height:0 !important; }
-.MuiStack-root.css-1mzerio:not(:has(> .MuiSwitch-root)) > .MuiTypography-h6 { flex:1 1 auto !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
-.MuiStack-root.css-1mzerio:not(:has(> .MuiSwitch-root)) > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
-/* Store registry header: only Reload store / Remove store are right-aligned. */
-.MuiStack-root.css-1mzerio:not(:has(> .MuiSwitch-root)):has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiBox-root.css-i9gxme { display:none !important; }
-.MuiStack-root.css-1mzerio:not(:has(> .MuiSwitch-root)):has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiIconButton-root { flex:0 0 auto !important; margin:0 !important; transform:none !important; }
-/* Store card header: title on line 1, plain author beneath it; avatar and fake spacer removed. */
-button.css-1v59atl .MuiStack-root.css-1mzerio { display:grid !important; grid-template-columns:minmax(0,1fr) !important; grid-template-rows:auto auto !important; gap:2px !important; align-items:start !important; }
-button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiTypography-h6 { grid-area:1 / 1 !important; width:100% !important; overflow:hidden !important; }
-button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display:none !important; }
-button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] { display:flex !important; grid-area:2 / 1 !important; align-items:center !important; justify-self:start !important; min-width:0 !important; margin:0 !important; padding:0 !important; transform:none !important; }
-button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] .MuiAvatar-root, button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] :is(img,svg) { display:none !important; }
-button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] p { margin:0 !important; font-size:.78rem !important; line-height:1rem !important; white-space:nowrap !important; }
-/* Reset the store grid: each grid item defines its own height; no inherited 100%-height stretching. */
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 { align-items:start !important; align-content:start !important; }
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult { display:block !important; height:auto !important; min-height:0 !important; align-self:start !important; box-sizing:border-box !important; }
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > button.css-1v59atl { display:flex !important; flex-direction:column !important; align-items:stretch !important; justify-content:flex-start !important; width:100% !important; height:auto !important; min-height:0 !important; box-sizing:border-box !important; overflow:hidden !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; border:1px solid rgba(255,255,255,.08) !important; border-radius:8px !important; box-shadow:none !important; color:var(--solo-text) !important; }
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > button.css-1v59atl > .MuiBox-root.css-1upbinc { min-width:0 !important; height:auto !important; min-height:0 !important; padding:0 !important; }
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > button.css-1v59atl > .MuiTypography-root.css-1d82npj { display:block !important; margin:10px 0 0 !important; padding:0 !important; color:var(--solo-text-secondary) !important; -webkit-text-fill-color:var(--solo-text-secondary) !important; text-align:left !important; }
-.MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > button.css-1v59atl:hover { background:#1c1c1f !important; background-color:#1c1c1f !important; border-color:rgba(255,255,255,.12) !important; }
+/* PLUGIN STORE ONLY. Each store wrapper has Reload store; this prevents overlap with installed rows. */
+.css-1l78aht:has(> .MuiBox-root > .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload store"]) { display:block !important; height:auto !important; min-height:0 !important; overflow:visible !important; }
+.css-1l78aht:has(> .MuiBox-root > .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload store"]) > .MuiBox-root:first-child { display:block !important; height:auto !important; min-height:0 !important; margin:0 !important; padding:0 !important; }
+/* Store repository header only. */
+.css-1l78aht > .MuiBox-root > .MuiStack-root.css-1mzerio:has(> .MuiIconButton-root[aria-label="Reload store"]) { display:flex !important; flex-direction:row !important; align-items:center !important; gap:8px !important; width:100% !important; min-width:0 !important; height:auto !important; min-height:0 !important; }
+.css-1l78aht > .MuiBox-root > .MuiStack-root.css-1mzerio:has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiTypography-h6 { flex:1 1 auto !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
+.css-1l78aht > .MuiBox-root > .MuiStack-root.css-1mzerio:has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
+.css-1l78aht > .MuiBox-root > .MuiStack-root.css-1mzerio:has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiIconButton-root { flex:0 0 auto !important; margin:0 !important; transform:none !important; }
+.css-1l78aht > .MuiBox-root > .MuiStack-root.css-1mzerio:has(> .MuiIconButton-root[aria-label="Reload store"]) > .MuiBox-root.css-i9gxme { display:none !important; }
+/* Store tile grid: restore intrinsic tile height and preserve MUI's native grid columns. */
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 { align-items:flex-start !important; align-content:flex-start !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult { display:block !important; height:auto !important; min-height:0 !important; align-self:flex-start !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > :is(button.css-1v59atl,button.css-oewby) { display:block !important; width:100% !important; height:auto !important; min-height:0 !important; overflow:visible !important; box-sizing:border-box !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; border:1px solid rgba(255,255,255,.08) !important; border-radius:8px !important; box-shadow:none !important; color:var(--solo-text) !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > :is(button.css-1v59atl,button.css-oewby) > .MuiBox-root.css-1upbinc { display:block !important; height:auto !important; min-height:0 !important; padding:0 !important; }
+/* Tile header only: title / author in normal document flow, avatar hidden. */
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio { display:block !important; width:100% !important; height:auto !important; min-height:0 !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiTypography-h6 { display:block !important; width:100% !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display:none !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiStack-root[author] { display:block !important; width:auto !important; margin:3px 0 0 !important; padding:0 !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiStack-root[author] .MuiAvatar-root { display:none !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 .MuiStack-root.css-1mzerio > .MuiStack-root[author] p { margin:0 !important; font-size:.78rem !important; line-height:1rem !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > :is(button.css-1v59atl,button.css-oewby) > .MuiTypography-root { display:block !important; margin:10px 0 0 !important; padding:0 !important; color:var(--solo-text-secondary) !important; -webkit-text-fill-color:var(--solo-text-secondary) !important; text-align:left !important; }
+.css-1l78aht > .MuiGrid-root.MuiGrid-container.css-8lpyn0 > .MuiGrid-root.css-g3uult > :is(button.css-1v59atl,button.css-oewby):hover { background:#1c1c1f !important; background-color:#1c1c1f !important; border-color:rgba(255,255,255,.12) !important; }
 
-/* Explore: confirmed page-link styles. */
+/* EXPLORE: working genre cloud, arrows and PAGE_LINKS tiles. */
 [data-test-module-type="PAGE_LINKS_CLOUD"] { --wave-color-opacity-contrast-fill-thin:#09090b !important; }
 [data-test-module-type="PAGE_LINKS_CLOUD"] a._button_3357ce6[data-test="page-links-cloud-btn"] { --wave-color-opacity-contrast-fill-thin:#09090b !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:transparent !important; box-shadow:none !important; }
 [data-test-module-type="PAGE_LINKS_CLOUD"] a._button_3357ce6[data-test="page-links-cloud-btn"]:hover { --wave-color-opacity-contrast-fill-thin:#1c1c1f !important; background:#1c1c1f !important; background-color:#1c1c1f !important; color:#fff !important; }
@@ -3691,7 +3724,7 @@ button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] p { margi
 [data-test-module-type="PAGE_LINKS"] a._item_8056dae[data-test^="page-link-"] :is(._text_d2b2b39,svg,svg use) { color:var(--solo-text) !important; fill:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; }
 [data-test-module-type="PAGE_LINKS"] a._item_8056dae[data-test^="page-link-"]:hover { background:#1c1c1f !important; background-color:#1c1c1f !important; }
 
-/* Tracks: playing row and index glyph. */
+/* TRACKS: playing row brighter; icon replaces index number. */
 [data-test="tracklist-row"][data-test-is-playing="true"] { background:rgba(255,255,255,.12) !important; background-color:rgba(255,255,255,.12) !important; background-image:none !important; border-radius:.8em !important; box-shadow:none !important; animation:none !important; }
 [data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a, [data-test="tracklist-row"][data-test-is-playing="false"][aria-selected="true"] { background:rgba(255,255,255,.035) !important; background-color:rgba(255,255,255,.035) !important; background-image:none !important; box-shadow:none !important; animation:none !important; }
 [data-test="tracklist-row"][data-test-is-playing="true"] ._indexColumn_3ac64ab { position:relative !important; }
@@ -3699,7 +3732,7 @@ button.css-1v59atl .MuiStack-root.css-1mzerio > .MuiStack-root[author] p { margi
 [data-test="tracklist-row"][data-test-is-playing="true"] ._indexColumn_3ac64ab ._overlayIconWrapper_6331eb1 { position:absolute !important; inset:0 !important; display:flex !important; align-items:center !important; justify-content:center !important; width:auto !important; height:auto !important; transform:none !important; pointer-events:none !important; }
 [data-test="tracklist-row"][data-test-is-playing="true"] ._indexColumn_3ac64ab ._indexCellPlaybackVolumeMaxIconContainer_71bb86c { display:flex !important; align-items:center !important; justify-content:center !important; }
 
-/* Native dialogs / Track Radio action buttons. */
+/* NATIVE DIALOGS / TRACK RADIO buttons. */
 ._dialog_148b5df, ._dialog_148b5df ._container_2594b6b, ._dialog_148b5df ._upperContainer_97e8e88, ._dialog_148b5df ._info_f3aec5c, ._dialog_148b5df ._visibilityRow_0e30adb, ._dialog_148b5df ._container_7620b14 { background:#09090b !important; background-color:#09090b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; --wave-color-text-main:var(--solo-text) !important; --market-core-text-10-color:var(--solo-text) !important; --wave-color-solid-contrast-fill:var(--solo-text) !important; --wave-color-text-tertiary:var(--solo-text-secondary) !important; border-color:rgba(255,255,255,.08) !important; }
 ._dialog_148b5df :is([data-wave-color="textDefault"],[data-wave-color="textSecondary"],[data-wave-color="textTertiary"],span,p,label,button) { color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; text-shadow:none !important; }
 ._dialog_148b5df ._inputContainer_c4d431e, ._dialog_148b5df ._textarea_06faedd, ._dialog_148b5df ._container_080b5dc { background:#17171b !important; background-color:#17171b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:rgba(255,255,255,.08) !important; box-shadow:none !important; }
