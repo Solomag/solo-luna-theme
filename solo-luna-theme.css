@@ -2695,10 +2695,14 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 [data-test-page-name="explore"] ._buttonContainer_a07db07 button:hover,
 [data-test-page-name="explore"] .css-1xlzpjd:hover,
 ._buttonContainer_a07db07 button:hover, button[class*="_rightButton_"]:hover, button[class*="_leftButton_"]:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background: transparent !important;
+    background-color: transparent !important;
     color: white !important;
     border-color: transparent !important;
+    opacity: 0.7 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07,
@@ -3319,4 +3323,85 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 [data-track--page-id*="mix"] ._card_38c6c04 ._marketText_1lyag_1:not(._titleText_9e9bb51) {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+}
+
+/* --- LUNA SETTINGS FIXES --- */
+[data-test="settings-page"] .MuiInputBase-root,
+[data-test="settings-page"] .MuiInputBase-input {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
+
+[data-test="settings-page"] .MuiInputLabel-root.Mui-focused,
+[data-test="settings-page"] .MuiInputLabel-root.MuiFormLabel-filled {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
+
+[data-test="settings-page"] fieldset legend {
+    color: transparent !important; /* Fix for the outline cutting through the text */
+}
+
+/* Fix plugin/theme rows */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    height: auto !important;
+    min-height: 56px !important;
+}
+
+/* Force inner contents to behave */
+.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > * {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
+/* The left side (text/links) */
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, .css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 !important;
+}
+
+/* The right side (buttons) */
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, .css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: auto !important;
+}
+
+/* Force round explore arrows */
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Nuke all tracklist container borders */
+[class*="_defaultStyles_"], [class*="_grid_"], [class*="_moduleContainer_"] {
+    border: none !important;
+    border-color: transparent !important;
+    border-width: 0 !important;
+    border-style: none !important;
+}
+
+/* --- SPEAKER ICON FIX --- */
+/* Ensure the speaker icon container is visible when playing */
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c, 
+._overlayIconWrapper_6331eb1 span[class*="PlaybackVolume"] {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c svg,
+._overlayIconWrapper_6331eb1 span[class*="PlaybackVolume"] svg {
+    display: block !important;
+    opacity: 1 !important;
+    fill: var(--vv) !important;
 }
