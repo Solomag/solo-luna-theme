@@ -3620,261 +3620,68 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 
 
 /* =========================================================
-   SOLO v5.2 — CONSOLIDATED TARGETED PATCH (2026-08-28)
-   Appended to the untouched original v5.2 stylesheet.
+   SOLO v5.2 — FINAL TARGETED PATCH (2026-08-28)
+   Applied after the untouched original v5.2 stylesheet.
    ========================================================= */
 
-/* 1) Luna Themes: fixed "Install from URL" label and neutral input surface. */
-.MuiTextField-root.css-1vbfw84 {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
-    row-gap: 6px !important;
-}
-.MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root {
-    position: static !important;
-    grid-area: 1 / 1 !important;
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    transform-origin: left top !important;
-    font-size: .875rem !important;
-    line-height: 1.25rem !important;
-    color: var(--solo-text-secondary) !important;
-    -webkit-text-fill-color: var(--solo-text-secondary) !important;
-    pointer-events: none !important;
-}
-.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root {
-    grid-area: 2 / 1 !important;
-    margin: 0 !important;
-    background: #09090b !important;
-    background-color: #09090b !important;
-    background-image: none !important;
-}
-.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root > input {
-    background: transparent !important;
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-}
-.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline { border-color: rgba(255,255,255,.08) !important; }
-.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width: 0 !important; }
+/* Themes: fixed label and #09090b URL field. */
+.MuiTextField-root.css-1vbfw84 { display:grid !important; grid-template-columns:minmax(0,1fr) !important; grid-template-rows:auto auto !important; row-gap:6px !important; }
+.MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root { position:static !important; grid-area:1 / 1 !important; display:block !important; margin:0 !important; padding:0 !important; transform:none !important; font-size:.875rem !important; line-height:1.25rem !important; color:var(--solo-text-secondary) !important; -webkit-text-fill-color:var(--solo-text-secondary) !important; pointer-events:none !important; }
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root { grid-area:2 / 1 !important; margin:0 !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; }
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root > input { background:transparent !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; }
+.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline { border-color:rgba(255,255,255,.08) !important; }
+.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width:0 !important; }
 
-/* 2) Plugins: title/author at left, every functional control at right.
-   The real row has switch + Reload + Live reload + Show/Hide settings + Uninstall. */
-.MuiStack-root.css-1mzerio {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto auto auto auto auto !important;
-    grid-template-rows: auto auto auto !important;
-    align-items: center !important;
-    column-gap: 8px !important;
-    row-gap: 1px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    box-sizing: border-box !important;
-}
-.MuiStack-root.css-1mzerio > .MuiTypography-h6 {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-}
-.MuiStack-root.css-1mzerio > .MuiTypography-h6 > a {
-    display: block !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-}
-.MuiStack-root.css-1mzerio > .MuiSwitch-root { grid-column: 2 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column: 3 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column: 4 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Show settings"],
-.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Hide settings"] { grid-column: 5 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column: 6 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root.css-1mzerio > :is(.MuiSwitch-root, .MuiIconButton-root) {
-    align-self: center !important;
-    justify-self: center !important;
-    flex: none !important;
-    margin: 0 !important;
-    transform: none !important;
-}
-/* Empty spacer is responsible for the giant gaps. */
-.MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display: none !important; }
-/* Author is a sibling stack: keep it below title and hide only its avatar. */
-.MuiStack-root.css-1mzerio > .MuiStack-root[author] {
-    display: flex !important;
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-    align-items: center !important;
-    justify-self: start !important;
-    min-width: 0 !important;
-    min-height: 16px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-}
-.MuiStack-root.css-1mzerio > .MuiStack-root[author] .MuiAvatar-root,
-.MuiStack-root.css-1mzerio > .MuiStack-root[author] :is(img, svg) { display: none !important; }
-.MuiStack-root.css-1mzerio > .MuiStack-root[author] p {
-    margin: 0 !important;
-    white-space: nowrap !important;
-    font-size: .78rem !important;
-    line-height: 1rem !important;
-}
-/* Any opened plugin-settings panel is a direct child that is neither title, control,
-   spacer nor author. Force it below the complete header so hide/settings remains usable. */
-.MuiStack-root.css-1mzerio > :not(.MuiTypography-h6):not(.MuiSwitch-root):not(.MuiIconButton-root):not(.MuiBox-root.css-i9gxme):not(.MuiStack-root[author]) {
-    grid-column: 1 / -1 !important;
-    grid-row: 3 !important;
-    min-width: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 8px !important;
-    box-sizing: border-box !important;
-}
-/* Disabled controls need to read as disabled, not disappear into black. */
-.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled, .MuiIconButton-root:disabled) {
-    color: rgba(255,255,255,.34) !important;
-    opacity: 1 !important;
-}
-.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled, .MuiIconButton-root:disabled) :is(svg, path) {
-    color: rgba(255,255,255,.34) !important;
-    fill: currentColor !important;
-}
+/* Plugins: header controls stay right; author stays below title; full settings panel below. */
+.MuiStack-root.css-1mzerio { display:grid !important; grid-template-columns:minmax(0,1fr) auto auto auto auto auto !important; grid-template-rows:auto auto auto !important; align-items:center !important; column-gap:8px !important; row-gap:1px !important; width:100% !important; min-width:0 !important; height:auto !important; overflow:visible !important; box-sizing:border-box !important; }
+.MuiStack-root.css-1mzerio > .MuiTypography-h6 { grid-column:1 !important; grid-row:1 !important; min-width:0 !important; margin:0 !important; overflow:hidden !important; }
+.MuiStack-root.css-1mzerio > .MuiTypography-h6 > a { display:block !important; overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important; }
+.MuiStack-root.css-1mzerio > .MuiSwitch-root { grid-column:2 !important; grid-row:1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column:3 !important; grid-row:1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column:4 !important; grid-row:1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Show settings"], .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Hide settings"] { grid-column:5 !important; grid-row:1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column:6 !important; grid-row:1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > :is(.MuiSwitch-root,.MuiIconButton-root) { align-self:center !important; justify-self:center !important; margin:0 !important; transform:none !important; }
+.MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display:none !important; }
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] { display:flex !important; grid-column:1 !important; grid-row:2 !important; align-items:center !important; justify-self:start !important; min-width:0 !important; min-height:16px !important; margin:0 !important; padding:0 !important; transform:none !important; }
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] .MuiAvatar-root, .MuiStack-root.css-1mzerio > .MuiStack-root[author] :is(img,svg) { display:none !important; }
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] p { margin:0 !important; white-space:nowrap !important; font-size:.78rem !important; line-height:1rem !important; }
+.MuiStack-root.css-1mzerio > .MuiBox-root:not(.css-i9gxme) { grid-column:1 / -1 !important; grid-row:3 !important; min-width:0 !important; width:100% !important; max-width:100% !important; margin-top:8px !important; box-sizing:border-box !important; overflow:visible !important; }
+/* Opened setting panel uses CSS grid with one adaptive column per setting, not one endless row. */
+.MuiStack-root.css-1mzerio > .MuiBox-root:not(.css-i9gxme) .MuiStack-root.css-12qsudj { display:grid !important; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important; gap:8px 16px !important; width:100% !important; min-width:0 !important; overflow:visible !important; }
+.MuiStack-root.css-1mzerio > .MuiBox-root:not(.css-i9gxme) .MuiStack-root.css-1xhj18k { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; align-items:center !important; gap:12px !important; min-width:0 !important; width:100% !important; }
+.MuiStack-root.css-1mzerio > .MuiBox-root:not(.css-i9gxme) .MuiStack-root.css-1xhj18k > .MuiBox-root:first-child { min-width:0 !important; overflow-wrap:anywhere !important; }
+.MuiStack-root.css-1mzerio > .MuiBox-root:not(.css-i9gxme) .MuiStack-root.css-1xhj18k > .MuiBox-root.css-i9gxme { display:flex !important; align-items:center !important; justify-content:center !important; margin:0 !important; }
+.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) { color:rgba(255,255,255,.34) !important; opacity:1 !important; }
+.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled,.MuiIconButton-root:disabled) :is(svg,path) { color:rgba(255,255,255,.34) !important; fill:currentColor !important; }
 
-/* 3) Explore genre cloud: actual #333 source is --wave-color-opacity-contrast-fill-thin. */
-[data-test-page-name="explore"] [data-test="page-links-cloud"],
-[data-test-page-name="explore"] [data-test="page-links-cloud-row"] {
-    --wave-color-opacity-contrast-fill-thin: #09090b !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-}
-[data-test-page-name="explore"] a._button_3357ce6[data-test="page-links-cloud-btn"] {
-    --wave-color-opacity-contrast-fill-thin: #09090b !important;
-    background: #09090b !important;
-    background-color: #09090b !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-[data-test-page-name="explore"] a._button_3357ce6[data-test="page-links-cloud-btn"]:hover {
-    --wave-color-opacity-contrast-fill-thin: #1c1c1f !important;
-    background: #1c1c1f !important;
-    background-color: #1c1c1f !important;
-    color: white !important;
-}
-/* Keep Explore carousel arrows transparent while retaining the corrected alignment. */
-[data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) {
-    align-self: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
+/* Explore PAGE_LINKS_CLOUD: exact component scope; #333 comes from its thin contrast token. */
+[data-test-module-type="PAGE_LINKS_CLOUD"] { --wave-color-opacity-contrast-fill-thin:#09090b !important; }
+[data-test-module-type="PAGE_LINKS_CLOUD"] a._button_3357ce6[data-test="page-links-cloud-btn"] { --wave-color-opacity-contrast-fill-thin:#09090b !important; background:#09090b !important; background-color:#09090b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:transparent !important; box-shadow:none !important; }
+[data-test-module-type="PAGE_LINKS_CLOUD"] a._button_3357ce6[data-test="page-links-cloud-btn"]:hover { --wave-color-opacity-contrast-fill-thin:#1c1c1f !important; background:#1c1c1f !important; background-color:#1c1c1f !important; color:#fff !important; }
+/* The arrows share the same cloud module. Center them only; never paint a button surface. */
+[data-test-module-type="PAGE_LINKS_CLOUD"] ._container_30f0b4b { display:flex !important; align-items:center !important; }
+[data-test-module-type="PAGE_LINKS_CLOUD"] :is(button._rightButton_8329f20,button._leftButton_2f56f10) { align-self:center !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; margin:0 !important; padding:0 !important; transform:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; }
+[data-test-module-type="PAGE_LINKS_CLOUD"] :is(button._rightButton_8329f20,button._leftButton_2f56f10) svg { display:block !important; margin:0 !important; transform:none !important; }
 
-/* 4) Tracks: playing row visibly wins; manual selection remains deliberately faint. */
-[data-test="tracklist-row"][data-test-is-playing="true"] {
-    background: rgba(255,255,255,.12) !important;
-    background-color: rgba(255,255,255,.12) !important;
-    background-image: none !important;
-    border-radius: .8em !important;
-    box-shadow: none !important;
-    animation: none !important;
-}
-[data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a,
-[data-test="tracklist-row"][data-test-is-playing="false"][aria-selected="true"] {
-    background: rgba(255,255,255,.035) !important;
-    background-color: rgba(255,255,255,.035) !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    animation: none !important;
-}
-[data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
-[data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transform: none !important;
-}
+/* Tracks: current row is brighter; manual selection is faint; playback icon replaces index number. */
+[data-test="tracklist-row"][data-test-is-playing="true"] { background:rgba(255,255,255,.12) !important; background-color:rgba(255,255,255,.12) !important; background-image:none !important; border-radius:.8em !important; box-shadow:none !important; animation:none !important; }
+[data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a, [data-test="tracklist-row"][data-test-is-playing="false"][aria-selected="true"] { background:rgba(255,255,255,.035) !important; background-color:rgba(255,255,255,.035) !important; background-image:none !important; box-shadow:none !important; animation:none !important; }
+[data-test="tracklist-row"][data-test-is-playing="true"] ._indexNumber_de640b9 { visibility:hidden !important; }
+[data-test="tracklist-row"][data-test-is-playing="true"] [data-test="mt-index-col"] { position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important; }
+[data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 { position:absolute !important; inset:0 !important; display:flex !important; align-items:center !important; justify-content:center !important; transform:none !important; pointer-events:none !important; }
+[data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c { display:flex !important; align-items:center !important; justify-content:center !important; }
 
-/* 5) Native dark dialogs: Create playlist and related dialog family. */
-._dialog_148b5df,
-._dialog_148b5df ._container_2594b6b,
-._dialog_148b5df ._upperContainer_97e8e88,
-._dialog_148b5df ._info_f3aec5c,
-._dialog_148b5df ._visibilityRow_0e30adb,
-._dialog_148b5df ._container_7620b14 {
-    background: #09090b !important;
-    background-color: #09090b !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    --wave-color-text-main: var(--solo-text) !important;
-    --market-core-text-10-color: var(--solo-text) !important;
-    --wave-color-solid-contrast-fill: var(--solo-text) !important;
-    --wave-color-text-tertiary: var(--solo-text-secondary) !important;
-    border-color: rgba(255,255,255,.08) !important;
-}
-._dialog_148b5df :is([data-wave-color="textDefault"], [data-wave-color="textSecondary"], [data-wave-color="textTertiary"], span, p, label, button) {
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    text-shadow: none !important;
-}
-._dialog_148b5df ._inputContainer_c4d431e,
-._dialog_148b5df ._textarea_06faedd,
-._dialog_148b5df ._container_080b5dc {
-    background: #17171b !important;
-    background-color: #17171b !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    border-color: rgba(255,255,255,.08) !important;
-    box-shadow: none !important;
-}
-._dialog_148b5df :is(input, textarea)::placeholder { color: var(--solo-text-secondary) !important; opacity: 1 !important; }
-._dialog_148b5df ._imageContainer_03f553b,
-._dialog_148b5df ._imageBox_db868c3 {
-    background: #09090b !important;
-    background-color: #09090b !important;
-    background-image: none !important;
-    filter: none !important;
-}
-._dialog_148b5df ._artworkImage_5bde5a4 { filter: none !important; mix-blend-mode: normal !important; opacity: 1 !important; }
-/* Crop button was omitted from earlier dialog action selectors. */
-._dialog_148b5df button[data-test="crop-image-button"],
-._dialog_148b5df ._button_94c5125,
-._dialog_148b5df ._button_538cfb3 {
-    background: #1c1c1f !important;
-    background-color: #1c1c1f !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    border-color: rgba(255,255,255,.08) !important;
-    box-shadow: none !important;
-    animation: none !important;
-}
-._dialog_148b5df button[data-test="crop-image-button"]:hover,
-._dialog_148b5df ._button_94c5125:hover,
-._dialog_148b5df ._button_538cfb3:hover { background-color: #28282d !important; }
+/* Native dialogs / Create playlist: eliminate old light #65646c family. */
+._dialog_148b5df, ._dialog_148b5df ._container_2594b6b, ._dialog_148b5df ._upperContainer_97e8e88, ._dialog_148b5df ._info_f3aec5c, ._dialog_148b5df ._visibilityRow_0e30adb, ._dialog_148b5df ._container_7620b14 { background:#09090b !important; background-color:#09090b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; --wave-color-text-main:var(--solo-text) !important; --market-core-text-10-color:var(--solo-text) !important; --wave-color-solid-contrast-fill:var(--solo-text) !important; --wave-color-text-tertiary:var(--solo-text-secondary) !important; border-color:rgba(255,255,255,.08) !important; }
+._dialog_148b5df :is([data-wave-color="textDefault"],[data-wave-color="textSecondary"],[data-wave-color="textTertiary"],span,p,label,button) { color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; text-shadow:none !important; }
+._dialog_148b5df ._inputContainer_c4d431e, ._dialog_148b5df ._textarea_06faedd, ._dialog_148b5df ._container_080b5dc { background:#17171b !important; background-color:#17171b !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:rgba(255,255,255,.08) !important; box-shadow:none !important; }
+._dialog_148b5df :is(input,textarea)::placeholder { color:var(--solo-text-secondary) !important; opacity:1 !important; }
+._dialog_148b5df ._imageContainer_03f553b, ._dialog_148b5df ._imageBox_db868c3 { background:#09090b !important; background-color:#09090b !important; background-image:none !important; filter:none !important; }
+._dialog_148b5df ._artworkImage_5bde5a4 { filter:none !important; mix-blend-mode:normal !important; opacity:1 !important; }
+._dialog_148b5df :is(button[data-test="crop-image-button"],._button_94c5125,._button_538cfb3) { background:#1c1c1f !important; background-color:#1c1c1f !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:rgba(255,255,255,.08) !important; box-shadow:none !important; animation:none !important; }
+._dialog_148b5df :is(button[data-test="crop-image-button"],._button_94c5125,._button_538cfb3):hover { background-color:#28282d !important; }
 
-/* Track Radio album art: only cancel inherited brightening, do not recolor the artwork. */
-._coverArt_68a3984,
-._coverArt_68a3984 .css-1ksq8je,
-._coverArt_68a3984 .css-1tk08rl,
-._coverArt_68a3984 img[data-test="cover-art"] {
-    filter: none !important;
-    opacity: 1 !important;
-    mix-blend-mode: normal !important;
-    box-shadow: none !important;
-}
+/* Track Radio: targeted action buttons, no more grey surface + black label. */
+._actionContainer_9da0cc3 ._marketButton_1d16h_1, ._actionContainer_5bb1c14 ._marketButton_1d16h_1, ._actionContainer_5552083 ._marketButton_1d16h_1, ._actionContainer_7bd364b ._marketButton_1d16h_1, button[data-test="shuffle-all"]._marketButton_1d16h_1 { background:#1c1c1f !important; background-color:#1c1c1f !important; background-image:none !important; color:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; border-color:rgba(255,255,255,.08) !important; box-shadow:none !important; animation:none !important; }
+._actionContainer_9da0cc3 ._marketButton_1d16h_1 :is(._label_1d16h_1,svg,svg use), ._actionContainer_5bb1c14 ._marketButton_1d16h_1 :is(._label_1d16h_1,svg,svg use), ._actionContainer_5552083 ._marketButton_1d16h_1 :is(._label_1d16h_1,svg,svg use), ._actionContainer_7bd364b ._marketButton_1d16h_1 :is(._label_1d16h_1,svg,svg use), button[data-test="shuffle-all"]._marketButton_1d16h_1 :is(._label_1d16h_1,svg,svg use) { color:var(--solo-text) !important; fill:var(--solo-text) !important; -webkit-text-fill-color:var(--solo-text) !important; }
