@@ -3515,3 +3515,105 @@ button[class*="_rightButton_"], button[class*="_leftButton_"] {
     opacity: 1 !important;
     visibility: visible !important;
 }
+
+/* =========================================================
+   V5 FIXES: INPUT LABEL, SETTINGS ROWS, EXPLORE, TRACKS, SPEAKER
+   ========================================================= */
+
+/* 1. LUNA SETTINGS INPUT (Float above border & fix overlap) */
+[data-test="settings-page"] .MuiInputLabel-root.Mui-focused,
+[data-test="settings-page"] .MuiInputLabel-root.MuiFormLabel-filled {
+    transform: translate(14px, -9px) scale(0.75) !important;
+    background-color: #09090b !important;
+    padding: 0 4px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+[data-test="settings-page"] fieldset legend {
+    max-width: 100% !important;
+    color: transparent !important;
+}
+
+/* 2. LUNA SETTINGS BUTTONS (Strict Grid/Flex to stop jumping) */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 64px !important; /* Fixed height */
+    padding: 0 16px !important;
+}
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, 
+.css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, 
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 16px !important;
+}
+.css-sot3eg button, .css-sot3eg .MuiSwitch-root {
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* 3. EXPLORE PILLS (Dark #09090b and Arrow alignment) */
+[data-test-page-name="explore"] ._item_235a32d,
+[data-test-page-name="explore"] ._card_38c6c04,
+[data-test-page-name="explore"] a[class*="_link_"] > div,
+[data-test-page-name="explore"] a[class*="_item_"],
+[data-test-page-name="explore"] div[role="button"]:not([class*="_rightButton_"]):not([class*="_leftButton_"]) {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    background-image: none !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+[data-test-page-name="explore"] ._item_235a32d:hover,
+[data-test-page-name="explore"] ._card_38c6c04:hover {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+}
+/* Arrow alignment */
+[data-test-page-name="explore"] ._buttonContainer_a07db07 {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    transform: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 4. TRACKLIST NUMBERS & ACTIVE HIGHLIGHT */
+/* Fix grey numbers */
+._indexNumber_de640b9, [data-test="mt-index-col"] span {
+    color: #ffffff !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+/* Default highlight for currently playing track */
+div[data-test-is-playing="true"], ._tableRowIsPlaying_a59b9fa {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+}
+/* Remove residual highlight from merely clicking a track */
+div[data-test="tracklist-row"][aria-selected="true"]:not([data-test-is-playing="true"]):not(:focus-within) {
+    background-color: transparent !important;
+}
+
+/* 5. SPEAKER ICON (Bulletproof fix for missing icon) */
+div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
+div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
