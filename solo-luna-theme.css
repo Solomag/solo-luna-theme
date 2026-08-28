@@ -643,12 +643,15 @@ a._searchPill_ff832da:hover{background-color: rgb(var(--cover-Vib1),.3); }
 -----------------------------------------------======================================== */
 /*general tooltip*/
 ._marketTooltipContainer_1qti9_1 {
-    background-color: #fff0;
-    background-image: linear-gradient(var(--rotate), color-mix(in srgb, var(--v2) 55%, rgba(255, 255, 255, 0.6) 45%), color-mix(in srgb, var(--v1) 55%, rgba(255, 255, 255, 0.6) 45%));
-    animation: rotate-gradient 10s cubic-bezier(.33,.48,.63,.47) infinite;font-weight: 500;
-    color: var(--vv);
-    backdrop-filter: blur(10px);
-    box-shadow: rgb(var(--cover-DVib1),.3) 2px 2px 16px;}
+    background: var(--solo-raised) !important;
+    background-color: var(--solo-raised) !important;
+    background-image: none !important;
+    animation: none !important;
+    font-weight: 500;
+    color: var(--solo-text) !important;
+    border: 1px solid var(--solo-border) !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .45) !important;}
 /*playbar timecode tooltip*/
 ._toolTip_01e988e {
     backdrop-filter: blur(10px);
@@ -733,17 +736,17 @@ div._container_9a0abb9>._select_ef84104{background-color: rgb(var(--cover-Vib1))
 /*text*/
 A .css-yc8597, .css-pfqxe1, .css-1id1h8n, .css-pfqxe1, .css-axw7ok, .css-16hze37{
     color: rgba(0, 0, 0, 0.845)!important;}
-[class="MuiContainer-root MuiContainer-maxWidthMd css-1oyb6px"]{margin-bottom: 10em!Important;margin-top: -0EM!important;}
+[class="MuiContainer-root MuiContainer-maxWidthMd css-1oyb6px"]{margin-bottom: 10em!Important;margin-top: 0!important;}
 /*Luna settings bg*/
-[class="MuiStack-root css-1ov46kg"]{transform: translateY(-.5em);}
+[class="MuiStack-root css-1ov46kg"]{transform: none!important;}
 .css-3ts090{
     background-color: rgba(255, 255, 255, 0.13);
 }
 [class="MuiContainer-root MuiContainer-maxWidthLg css-sot3eg"]{
-
-    transform: translateY(-1em);
+    transform: none!important;
     background-image: linear-gradient(rgb(var(--cover-LVib1), .4)) !important;
-    min-width: 102%;margin-top: 1em;padding: 2.3em;padding-top: 2.3em;border-radius: 1em;}
+    min-width: 0!important;width: 100%!important;max-width: 100%!important;
+    box-sizing: border-box!important;margin-top: 1em;padding: 2.3em;padding-top: 2.3em;border-radius: 1em;}
 [class="_player_f60dc38 nowPlayingVisible _notFullscreen_1b39238"],[class="_player_f60dc38 nowPlayingVisible"],[class="_player_f60dc38 nowPlayingVisible _controlsHidden_cc249f0"]{[class="_header_f086575"] {display:none;}}
 .css-1lpn1cw.Mui-disabled,.css-5aeqi2.Mui-disabled{
     color: rgba(0, 0, 0, 0.383);}
@@ -778,8 +781,8 @@ color: #000000!Important; }
 #main > div:nth-child(3) > div > div.MuiContainer-root.MuiContainer-maxWidthLg.css-sot3eg > div > div:nth-child(2) > div.MuiStack-root.css-16a8gxx > div {
 color: #000000;}
 .css-155onld{
-    color: rgb(0, 0, 0)!Important;
-    transform: translateY(-1.4em)!Important;}
+    color: var(--solo-text)!Important;
+    transform: none!Important;}
 .css-1xqp9nb,[class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall css-1fjnh2a"],.css-msl6v0.MuiSelect-select{
     color: #ffffff!Important;
     background-color: rgba(11, 0, 23, 0.629)!Important;}
@@ -1442,8 +1445,16 @@ input[class*="_nativeRange"]::-webkit-slider-thumb {
     --cover-LightVibrant: var(--cover-LVib1);}
 
 ._artworkContainer_3cdbf46:hover{
-    outline-style: solid; border-radius: 4px; outline-width: 2px;
-    outline-color: rgb(var(--cover-LightVibrant),1);}
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;}
+
+._artworkContainer_3cdbf46:hover::before,
+._artworkContainer_3cdbf46:hover::after {
+    border: none!important;
+    outline: none!important;
+    box-shadow: none!important;
+}
 
 :is(._artworkContainer_3cdbf46:hover,._artworkContainer_3cdbf46:focus-visible) ._artwork_633cf14{filter: brightness(.25) saturate(1.1); }
 ._expandIcon_c0733da{color: color-mix(in srgb, rgb(var(--cover-LightVibrant),1) 70%, white 30%);}
@@ -2372,8 +2383,13 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     transition: filter 180ms ease, transform 350ms ease !important;
 }
 
-._card_38c6c04:hover ._marketText_1lyag_1 {
+._card_38c6c04:hover ._marketText_1lyag_1,
+._card_38c6c04:hover a,
+._card_38c6c04:hover [class*="_artistText_"],
+._card_38c6c04:hover [class*="_albumText_"] {
     color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    text-shadow: none !important;
 }
 
 ._card_38c6c04:hover ._badge_57d1ccb {
@@ -2401,8 +2417,13 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 }
 
 ._item_235a32d:hover ._marketText_1lyag_1,
-._item_235a32d:hover ._link_6a45a19._item_39605ae {
+._item_235a32d:hover ._link_6a45a19._item_39605ae,
+._item_235a32d:hover a,
+._item_235a32d:hover [class*="_artistText_"],
+._item_235a32d:hover [class*="_albumText_"] {
     color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    text-shadow: none !important;
 }
 
 ._item_235a32d:hover ._icon_77f3f89 {
@@ -2670,16 +2691,19 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 [data-test-page-name="explore"] .css-1xlzpjd,
 [data-test-page-name="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
 ._buttonContainer_a07db07 button {
-    background: var(--solo-raised) !important;
-    background-color: var(--solo-raised) !important;
+    background: var(--solo-bg) !important;
+    background-color: var(--solo-bg) !important;
     background-image: none !important;
     color: var(--solo-text) !important;
-    border: 1px solid var(--solo-border) !important;
+    border: none !important;
+    border-radius: 999px !important;
     outline: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
     filter: none !important;
     animation: none !important;
+    display: grid !important;
+    place-items: center !important;
 }
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07 button:hover,
@@ -2688,7 +2712,16 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     background: var(--solo-hover) !important;
     background-color: var(--solo-hover) !important;
     color: white !important;
-    border-color: rgba(255, 255, 255, 0.16) !important;
+    border-color: transparent !important;
+}
+
+[data-test-page-name="explore"] ._buttonContainer_a07db07,
+[data-test-page-name="explore"] .css-8iwxr {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 ._buttonContainer_a07db07 svg,
@@ -2787,6 +2820,19 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     color: var(--solo-text) !important;
 }
 
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root),
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).Mui-focused,
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).MuiFormLabel-filled {
+    color: var(--solo-text-secondary) !important;
+    -webkit-text-fill-color: var(--solo-text-secondary) !important;
+}
+
+.css-sot3eg .MuiOutlinedInput-root,
+.css-sot3eg .MuiOutlinedInput-input {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
+
 .MuiSwitch-switchBase + .MuiSwitch-track {
     background-color: #414149 !important;
     opacity: 1 !important;
@@ -2803,12 +2849,24 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 .css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
     min-width: 0 !important;
-    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *,
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root,
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .css-1m2j012 a[href^="http"], .css-1v59atl a[href^="http"], .css-1m2uggs a[href^="http"], .css-1l78aht a[href^="http"],
 .css-1m2j012 p, .css-1v59atl p, .css-1m2uggs p, .css-1l78aht p {
-    min-width: 0;
+    min-width: 0 !important;
+    flex: 1 1 0 !important;
     max-width: 100% !important;
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
@@ -2819,6 +2877,17 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 .css-1m2j012 .MuiSwitch-root, .css-1v59atl .MuiSwitch-root, .css-1m2uggs .MuiSwitch-root, .css-1l78aht .MuiSwitch-root {
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
+    align-self: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: none !important;
+}
+
+.css-sot3eg button {
+    align-self: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: none !important;
 }
 
 .css-3ts090 {
@@ -2856,6 +2925,28 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     background-image: none !important;
     box-shadow: none !important;
     filter: brightness(1.2) !important;
+}
+
+/* Artist preview and other player tooltips use the same raised dark surface. */
+._player_8c80ae6 :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"], [role="tooltip"]),
+body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role="tooltip"]) {
+    --wave-color-text-main: var(--solo-text) !important;
+    --market-core-text-10-color: var(--solo-text) !important;
+    background: var(--solo-raised) !important;
+    background-color: var(--solo-raised) !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    border: 1px solid var(--solo-border) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .45) !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+._player_8c80ae6 :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"], [role="tooltip"]) *,
+body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role="tooltip"]) * {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    text-shadow: none !important;
 }
 
 /* QUALITY BADGES */
@@ -2954,6 +3045,24 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 ._rowContainer_ebb4cfc._selected_8f556cc ._artistText_a1c7611 a {
     color: var(--solo-text-secondary) !important;
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
+}
+
+/* Keep every Music row variant readable while TIDAL applies hover tokens. */
+._tableRow_299a426:hover,
+tr._rowContainer_ebb4cfc:hover {
+    --vv: var(--solo-text) !important;
+    --zz: var(--solo-text) !important;
+    --wave-color-text-main: var(--solo-text) !important;
+    --wave-color-text-secondary: var(--solo-text-secondary) !important;
+    --market-core-text-10-color: var(--solo-text) !important;
+    color: var(--solo-text) !important;
+}
+
+._tableRow_299a426:hover :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"]),
+tr._rowContainer_ebb4cfc:hover :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"]) {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    text-shadow: none !important;
 }
 
 /* =========================================================
@@ -3157,6 +3266,8 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     line-height: normal !important;
 }
 
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad ._cellImage_0ef8dd3,
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad img,
 [data-track--page-id^="mycollection_"] ._cellContainer_19b23ad ._cellImage_0ef8dd3,
 [data-track--page-id^="mycollection_"] ._cellContainer_19b23ad img {
     opacity: 1 !important;
@@ -3165,6 +3276,8 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     transition: filter 180ms ease, transform 350ms ease !important;
 }
 
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover ._cellImage_0ef8dd3,
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover img,
 [data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover ._cellImage_0ef8dd3,
 [data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover img {
     opacity: 1 !important;
@@ -3183,11 +3296,30 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     filter: brightness(.78) !important;
 }
 
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
 [data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover [class*="_overlay_"] {
     background: transparent !important;
     background-image: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    filter: none !important;
+}
+
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"]),
+[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"]) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"])::before,
+[data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"])::after,
+[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"])::before,
+[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover :is([class*="_cellCoverContainer_"], [class*="_imageContainer_"], [class*="_imageWrapper_"])::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
     filter: none !important;
 }
 
