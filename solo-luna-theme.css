@@ -3620,11 +3620,11 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 
 
 /* =========================================================
-   SOLO v5.2 — LUNA / DIALOGUE TARGETED PATCH (2026-08-28)
-   Appended to the original v5.2 file only.
+   SOLO v5.2 — TARGETED LUNA REPAIR v2 (2026-08-28)
+   Original v5.2 retained unchanged; this block is appended.
    ========================================================= */
 
-/* 1. Confirmed URL-field repair: static label + neutral dark field. */
+/* 1. Themes / Install from URL — confirmed layout, dark neutral input. */
 .MuiTextField-root.css-1vbfw84 {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
@@ -3633,8 +3633,7 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 }
 .MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root {
     position: static !important;
-    grid-row: 1 !important;
-    grid-column: 1 !important;
+    grid-area: 1 / 1 !important;
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -3643,11 +3642,9 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     line-height: 1.25rem !important;
     color: var(--solo-text-secondary) !important;
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
-    pointer-events: none !important;
 }
 .MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root {
-    grid-row: 2 !important;
-    grid-column: 1 !important;
+    grid-area: 2 / 1 !important;
     margin: 0 !important;
     background: #09090b !important;
     background-color: #09090b !important;
@@ -3657,89 +3654,96 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline { border-color: rgba(255,255,255,.08) !important; }
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width: 0 !important; }
 
-/* 2. Plugins: a stable three-column row.
-   Title + a plain "by author" stack on the left; functional controls flush right.
-   The avatar is suppressed rather than competing for horizontal space. */
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]),
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) {
+/* 2. Plugins — actual DOM is css-1mzerio and has 4 action buttons:
+   switch, Reload, Live reload, Settings and Uninstall.
+   Grid has a left text column and a right-aligned six-control grid. */
+.MuiStack-root.css-1mzerio {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto auto auto !important;
+    grid-template-columns: minmax(0, 1fr) auto auto auto auto auto !important;
     grid-template-rows: auto auto !important;
     align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 2px !important;
+    column-gap: 8px !important;
+    row-gap: 1px !important;
     width: 100% !important;
     min-width: 0 !important;
     height: auto !important;
     box-sizing: border-box !important;
 }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiTypography-root,
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiTypography-root {
+.MuiStack-root.css-1mzerio > .MuiTypography-h6 {
     grid-column: 1 !important;
     grid-row: 1 !important;
     min-width: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;
 }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiTypography-root > a,
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiTypography-root > a {
+.MuiStack-root.css-1mzerio > .MuiTypography-h6 > a {
     display: block !important;
+    min-width: 0 !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
 }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiSwitch-root,
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiSwitch-root {
+.MuiStack-root.css-1mzerio > .MuiSwitch-root {
     grid-column: 2 !important;
     grid-row: 1 / span 2 !important;
+}
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column: 3 !important; grid-row: 1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column: 4 !important; grid-row: 1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Show settings"],
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Hide settings"] { grid-column: 5 !important; grid-row: 1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column: 6 !important; grid-row: 1 / span 2 !important; }
+.MuiStack-root.css-1mzerio > :is(.MuiSwitch-root, .MuiIconButton-root) {
     align-self: center !important;
     justify-self: center !important;
+    flex: none !important;
     margin: 0 !important;
     transform: none !important;
 }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column: 3 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column: 4 !important; grid-row: 1 / span 2 !important; }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiIconButton-root,
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiIconButton-root {
-    align-self: center !important;
-    justify-self: center !important;
-    margin: 0 !important;
-    transform: none !important;
-}
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiBox-root,
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiBox-root {
+/* Existing empty spacer is non-semantic and caused the huge gaps. */
+.MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display: none !important; }
+/* Author is an actual MuiStack sibling, not a MuiBox. Put it under title. */
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] {
+    display: flex !important;
     grid-column: 1 !important;
     grid-row: 2 !important;
+    align-items: center !important;
     justify-self: start !important;
-    align-self: center !important;
     min-width: 0 !important;
+    min-height: 16px !important;
     margin: 0 !important;
+    padding: 0 !important;
     transform: none !important;
 }
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiBox-root :is(img, [class*="Avatar"], [class*="avatar"], svg),
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiBox-root :is(img, [class*="Avatar"], [class*="avatar"], svg) {
-    display: none !important;
-}
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiBox-root :is(span, p, a),
-.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiBox-root :is(span, p, a) {
-    display: inline !important;
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] .MuiAvatar-root,
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] :is(img, svg) { display: none !important; }
+.MuiStack-root.css-1mzerio > .MuiStack-root[author] p {
+    margin: 0 !important;
+    white-space: nowrap !important;
     font-size: .78rem !important;
     line-height: 1rem !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
 }
 
-/* 3. Explore: this removes the old #333/#1c surface from the actual horizontal cards
-   and keeps arrows entirely transparent. */
-[data-test-page-name="explore"] ._item_235a32d,
-[data-test-page-name="explore"] ._item_235a32d:hover,
-[data-test-page-name="explore"] ._item_235a32d:focus-within,
-[data-test-page-name="explore"] ._item_235a32d > div {
+/* 3. Explore genre cloud — this is the real #333333 surface.
+   It uses data-test="page-links-cloud-btn", not the generic card classes. */
+[data-test-page-name="explore"] [data-test="page-links-cloud"],
+[data-test-page-name="explore"] [data-test="page-links-cloud-row"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+[data-test-page-name="explore"] a[data-test="page-links-cloud-btn"] {
     background: #09090b !important;
     background-color: #09090b !important;
     background-image: none !important;
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    border-color: transparent !important;
     box-shadow: none !important;
+}
+[data-test-page-name="explore"] a[data-test="page-links-cloud-btn"]:hover {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+    color: white !important;
 }
 [data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) {
     align-self: center !important;
@@ -3754,7 +3758,7 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     box-shadow: none !important;
 }
 
-/* 4. Tracks: preserve the confirmed differentiation. */
+/* 4. Tracks — retain the confirmed distinct playing and manual-selection states. */
 [data-test="tracklist-row"][data-test-is-playing="true"] {
     background: rgba(255,255,255,.12) !important;
     background-color: rgba(255,255,255,.12) !important;
@@ -3771,32 +3775,17 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     box-shadow: none !important;
     animation: none !important;
 }
-[data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
-[data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transform: none !important;
-}
 
-/* 5. Dark modal / popup system. Replaces inherited light #65646c-style surfaces
-   and black text in ReactModal dialogs, including "Add to playlist". */
-:root {
-    --solo-modal-bg: #09090b;
-    --solo-modal-input: #17171b;
-}
-.ReactModal__Content.ReactModal__Content--after-open,
-.ReactModalPortal .ReactModal__Content,
-.ReactModalPortal [class*="modalBody"],
-.ReactModalPortal [class*="modalText"],
-.ReactModalPortal [class*="subtitle"],
-.ReactModalPortal neptune-reactive-root,
-.ReactModalPortal .MuiPaper-root,
-.ReactModalPortal .MuiDialog-paper,
-.ReactModalPortal .MuiPopover-paper,
-.ReactModalPortal .MuiMenu-paper {
-    background: var(--solo-modal-bg) !important;
-    background-color: var(--solo-modal-bg) !important;
+/* 5. Core native dialogs: Create playlist, Track radio and related panels.
+   Old theme explicitly makes ._dialog_148b5df light and black; override it locally. */
+._dialog_148b5df,
+._dialog_148b5df ._container_2594b6b,
+._dialog_148b5df ._upperContainer_97e8e88,
+._dialog_148b5df ._info_f3aec5c,
+._dialog_148b5df ._visibilityRow_0e30adb,
+._dialog_148b5df ._container_7620b14 {
+    background: #09090b !important;
+    background-color: #09090b !important;
     background-image: none !important;
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
@@ -3805,22 +3794,78 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     --wave-color-solid-contrast-fill: var(--solo-text) !important;
     --wave-color-text-tertiary: var(--solo-text-secondary) !important;
     border-color: rgba(255,255,255,.08) !important;
-    box-shadow: 0 20px 50px rgba(0,0,0,.55) !important;
 }
-.ReactModalPortal .ReactModal__Content :is(h1,h2,h3,h4,h5,h6,p,span,a,label,button,[data-wave-color="textDefault"],[data-wave-color="textSecondary"]),
-.ReactModalPortal [class*="modalBody"] :is(h1,h2,h3,h4,h5,h6,p,span,a,label,button,[data-wave-color="textDefault"],[data-wave-color="textSecondary"]) {
+._dialog_148b5df :is([data-wave-color="textDefault"], [data-wave-color="textSecondary"], [data-wave-color="textTertiary"], span, p, label, button) {
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
     text-shadow: none !important;
 }
-.ReactModalPortal :is(input, textarea, [class*="search" i] input, [class*="input" i]) {
-    background: var(--solo-modal-input) !important;
-    background-color: var(--solo-modal-input) !important;
+._dialog_148b5df ._inputContainer_c4d431e,
+._dialog_148b5df ._textarea_06faedd,
+._dialog_148b5df ._container_080b5dc {
+    background: #17171b !important;
+    background-color: #17171b !important;
     background-image: none !important;
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
     border-color: rgba(255,255,255,.08) !important;
     box-shadow: none !important;
 }
-.ReactModalPortal :is(input, textarea)::placeholder { color: var(--solo-text-secondary) !important; opacity: 1 !important; }
-.ReactModalPortal :is(button, [role="button"]):hover { background-color: rgba(255,255,255,.08) !important; }
+._dialog_148b5df :is(input, textarea)::placeholder { color: var(--solo-text-secondary) !important; opacity: 1 !important; }
+._dialog_148b5df ._imageContainer_03f553b,
+._dialog_148b5df ._imageBox_db868c3 {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    background-image: none !important;
+    filter: none !important;
+}
+._dialog_148b5df ._artworkImage_5bde5a4 {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+}
+._dialog_148b5df ._button_94c5125,
+._dialog_148b5df ._button_538cfb3 {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    border-color: rgba(255,255,255,.08) !important;
+    box-shadow: none !important;
+}
+._dialog_148b5df ._button_94c5125:hover,
+._dialog_148b5df ._button_538cfb3:hover { background-color: #28282d !important; }
+
+/* Track Radio cover and header controls: kill inherited whitening/brightening.
+   Button selectors are restricted to normal primary/secondary action buttons. */
+._coverArt_68a3984,
+._coverArt_68a3984 .css-1ksq8je,
+._coverArt_68a3984 .css-1tk08rl,
+._coverArt_68a3984 img[data-test="cover-art"] {
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+._coverArt_68a3984 img[data-test="cover-art"] { filter: brightness(1) saturate(1) contrast(1) !important; }
+._actionContainer_9da0cc3 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
+._actionContainer_5bb1c14 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
+._actionContainer_5552083 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
+._actionContainer_7bd364b :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    border-color: rgba(255,255,255,.08) !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+._actionContainer_9da0cc3 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
+._actionContainer_5bb1c14 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
+._actionContainer_5552083 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
+._actionContainer_7bd364b :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use) {
+    color: var(--solo-text) !important;
+    fill: var(--solo-text) !important;
+}
