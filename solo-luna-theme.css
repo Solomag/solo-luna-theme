@@ -3460,88 +3460,61 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 }
 
 /* 1. ИНПУТ "INSTALL FROM URL" (Фикс черного текста) */
-/* Бьем по всем label внутри инпутов в настройках */
-[class*="input"]:focus-within label,
-[class*="input"]:focus ~ label,
-[class*="textField"]:focus-within label,
-.luna-setting-label,
-label {
+/* Бьем по лейблам Material UI, когда инпут в фокусе */
+.MuiFormControl-root:focus-within label.MuiInputLabel-root,
+.MuiInputBase-root:focus-within ~ label.MuiInputLabel-root,
+.MuiInputLabel-root.Mui-focused {
     color: var(--text-primary, #ffffff) !important;
 }
 
 /* 2. ЕДУЩИЕ КНОПКИ В ТЕМАХ */
-/* Ищем любые ряды и карточки в настройках Luna и жестко выстраиваем их во flex */
-[class*="luna-theme-"],
-[class*="luna-plugin-"],
-div[class*="settingRow"],
-div[class*="SettingsItem"] {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 48px !important;
-}
-/* Контейнер самих кнопок (свитчер, рефреш, корзина) — собираем их в кучу */
-div[class*="actions"],
-div[class*="buttons"] {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important; 
+/* К сожалению, в HTML нет куска кода самой строки настроек (ты скинул два раза инпут), 
+но если они используют стандартные карточки Luna, этот фикс должен сработать */
+[class*="SettingRow"],
+.luna-theme-item,
+.MuiFormControl-root {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
 }
 
-/* 3. EXPLORE ФОН И УЕБАНСКИЕ СТРЕЛКИ */
-/* Убиваем фон эксплора */
-[data-test-page-name="explore"],
-[class*="explorePage"],
-[class*="exploreContainer"],
-main[class*="main_"] {
-    background-color: transparent !important;
-    background-image: none !important;
-}
-/* Стрелки (превращаем черные квадраты в нормальные полупрозрачные круги) */
-button[aria-label="Next"],
-button[aria-label="Previous"],
-[class*="carousel"] button,
-[class*="slider"] button {
+/* 3. EXPLORE УЕБАНСКИЕ СТРЕЛКИ */
+/* Превращаем кнопки карусели со стрелками в аккуратные круги */
+button[class*="_rightButton_"],
+button[class*="_leftButton_"] {
     background-color: rgba(255, 255, 255, 0.05) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 50% !important;
     box-shadow: none !important;
-    width: 40px !important;
-    height: 40px !important;
     backdrop-filter: blur(4px) !important;
 }
-button[aria-label="Next"]:hover,
-button[aria-label="Previous"]:hover,
-[class*="carousel"] button:hover {
+button[class*="_rightButton_"]:hover,
+button[class*="_leftButton_"]:hover {
     background-color: rgba(255, 255, 255, 0.15) !important;
 }
+/* Фикс фона в Explore (на случай, если старый не срабатывал) */
+[data-test="explore-page"],
+div[class*="explore"] {
+    background: transparent !important;
+}
 
-/* 4. ЗАТЕМНЕНИЕ В COLLECTION */
-/* Ловим любые оверлеи внутри ячеек при наведении */
-[class*="cellContainer"]:hover [class*="overlay"],
-[class*="cellContainer"]:hover [class*="imageOverlay"],
-[class*="cellContainer"]:hover::after,
-[class*="imageWrapper"]:hover::after {
-    background-color: rgba(0, 0, 0, 0.4) !important; /* 40% прозрачности вместо глухого черного */
-    opacity: 1 !important;
+/* 4. ЗАТЕМНЕНИЕ ОБЛОЖЕК В COLLECTION (И ГДЕ УГОДНО) */
+/* Ловим контейнер с кнопками Play/Heart при наведении. 
+В коде это fx-hover-controls или overlayIconWrapper */
+div[class*="fx-hover-controls"],
+div[class*="_overlayIconWrapper_"],
+div[class*="_fxHoverControls_"] {
+    background-color: rgba(0, 0, 0, 0.4) !important; /* 40% затемнения вместо 100% */
 }
 
 /* 5. РАМКА И ЗАСВЕТ В ТРЕКАХ */
-/* Выкашиваем рамку на всех видах выделенных строк */
-[class*="trackListRow"]:focus-within,
-[class*="trackListRow"][aria-selected="true"],
-[class*="trackListRow"].selected,
-[data-test="tracklist-row"]:focus-within {
+/* Убиваем рамку у строк таблицы треков при клике/выделении */
+div[role="row"]:focus-within,
+div[role="row"][aria-selected="true"],
+div[data-test="tracklist-row"]:focus-within,
+div[class*="_tableRow_"]:focus-within {
     border: none !important;
     outline: none !important;
-    box-shadow: none !important;
-    background-color: rgba(255, 255, 255, 0.06) !important; /* Легкая подсветка вместо вырвиглазной */
-}
-/* На случай если рамка сделана через pseudo-элементы */
-[class*="trackListRow"]:focus-within::after,
-[class*="trackListRow"][aria-selected="true"]::after,
-[class*="trackListRow"].selected::after {
-    border: none !important;
-    box-shadow: none !important;
-    display: none !important;
+    box-shadow: none !important; /* Именно это дает засвет/рамку */
+    background-color: rgba(255, 255, 255, 0.08) !important; /* Легкая подсветка фона */
 }
