@@ -940,19 +940,12 @@ tr._rowContainer_ebb4cfc:hover{
 ._timeColumn_3cd7564{color: var(--vv)!Important;}}
 ._notCircleIcon_dad7d82._iconButton_4b3ed40._noPadding_9cb3eea._playButton_4942431 > ._icon_77f3f89 > use
 {fill: color-mix(in srgb, rgb(var(--cover-Vib1),1) 55% , rgba(255, 255, 255, 1) 45%);}
-._tableRow_299a426._tableRowSelected_fb04c2a._tableRowSelectGroupStart_cf1af82._tableRowSelectGroupEnd_b4631c2,._rowContainer_ebb4cfc._selected_8f556cc
+._tableRow_299a426._tableRowSelected_fb04c2a,._rowContainer_ebb4cfc._selected_8f556cc, ._tableRow_299a426.selected, div[data-test="tracklist-row"][aria-selected="true"], div[data-test="tracklist-row"]:focus-within
 {border-radius: .8em;
-    box-shadow: inset 0px 0px 1.5em var(--trackselshad);
-    background-color:  color-mix(in srgb, rgb(var(--cover-Vib2),.6) 95% , rgba(0, 0, 0, 0.45) 5%) !important;
-    animation: gradient 155s ease-in-out infinite !important;
-    background-image:
-    radial-gradient(ellipse at center,rgba(0, 0, 0, 0) , rgba(0, 0, 0, 0.1) 110%),
-    linear-gradient(155deg,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    )!Important;
-background-size: 1400% 1400%!important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    animation: none !important;
+    background-image: none !important;
 transition: 400ms;
 [class^="_indexNumber_"]{color: var(--vv) !important; transition: 150ms;}
 ._backgroundLow_529dd3c._icon_77f3f89 > use{fill:var(--vv); transition: 450ms; }
@@ -1049,14 +1042,7 @@ filter: saturate(1.02) brightness(1.05) !important;
   -----------------------------------------------======================================== */
   /*track border line*/
  div:nth-child(1) > div> div,div._mediaTable_8895569 > div:nth-child(1) > div{border-style: none;}
-._tableRow_299a426{border-radius: .8em;border-style: solid none none none;border-width: 2px;
-border-image: linear-gradient(to right,
-#0000 1em,
-#0000 2%,
-var(--tracksborder) 20%,
-var(--tracksborder) 80%,
-#ffffff00  calc(100% - 1.5em),
-#0000 100%) 1 ;}
+._tableRow_299a426{border-radius: .8em;border-style: none !important;border-image: none !important;}
 ._filter_8933b89{margin-bottom: 1.15em!Important;}
 ._coverImage_1b29507{ border-radius: .45em;}
 /* ==========================================.............................................
@@ -2690,13 +2676,13 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] .css-1xlzpjd,
 [data-test-page-name="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
-._buttonContainer_a07db07 button {
-    background: var(--solo-bg) !important;
-    background-color: var(--solo-bg) !important;
+._buttonContainer_a07db07 button, button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    background: transparent !important;
+    background-color: transparent !important;
     background-image: none !important;
     color: var(--solo-text) !important;
     border: none !important;
-    border-radius: 999px !important;
+    border-radius: 50% !important;
     outline: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -2708,11 +2694,15 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07 button:hover,
 [data-test-page-name="explore"] .css-1xlzpjd:hover,
-._buttonContainer_a07db07 button:hover {
-    background: var(--solo-hover) !important;
-    background-color: var(--solo-hover) !important;
+._buttonContainer_a07db07 button:hover, button[class*="_rightButton_"]:hover, button[class*="_leftButton_"]:hover {
+    background: transparent !important;
+    background-color: transparent !important;
     color: white !important;
     border-color: transparent !important;
+    opacity: 0.7 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07,
@@ -2820,11 +2810,14 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     color: var(--solo-text) !important;
 }
 
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root),
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).Mui-focused,
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).MuiFormLabel-filled {
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root) {
     color: var(--solo-text-secondary) !important;
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
+}
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).Mui-focused,
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).MuiFormLabel-filled {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
 }
 
 .css-sot3eg .MuiOutlinedInput-root,
@@ -2847,12 +2840,15 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     background: #f3f3f5 !important;
 }
 
-.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, [class*="SettingRow"], .luna-theme-item {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 52px !important;
 }
 
 .css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *,
@@ -3226,9 +3222,9 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 [data-test-page-name="my-collection"] .css-ohr3gy,
 [data-test-page-name="my-collection"] .css-17bbmu3,
 [data-track--page-id="mycollection_playlists"] .css-ohr3gy,
-[data-track--page-id="mycollection_playlists"] .css-17bbmu3 {
-    background: var(--solo-bg) !important;
-    background-color: var(--solo-bg) !important;
+[data-track--page-id="mycollection_playlists"] .css-17bbmu3, .fx-hover-controls, ._fxHoverControls_cb86dc6, [class*="_overlayIconWrapperAlbum_"] {
+    background: rgba(0, 0, 0, 0.4) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
@@ -3329,143 +3325,295 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     text-overflow: ellipsis !important;
 }
 
-
-/* =========================================================
-   SOLO TARGETED FIXES — 2026-08-28
-   Appended to the untouched original theme.
-   ========================================================= */
-
-/* 1) Luna Themes: keep the URL field label above its input instead of floating. */
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[placeholder*="URL" i]),
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[aria-label*="URL" i]),
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[name*="url" i]) {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 6px !important;
-}
-
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[placeholder*="URL" i]) .MuiInputLabel-root,
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[aria-label*="URL" i]) .MuiInputLabel-root,
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[name*="url" i]) .MuiInputLabel-root {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    transform-origin: left top !important;
-    font-size: .875rem !important;
-    line-height: 1.25rem !important;
-    color: var(--solo-text-secondary) !important;
-    -webkit-text-fill-color: var(--solo-text-secondary) !important;
-    pointer-events: none !important;
-}
-
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[placeholder*="URL" i]) .MuiOutlinedInput-notchedOutline legend,
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[aria-label*="URL" i]) .MuiOutlinedInput-notchedOutline legend,
-.__NEPTUNE_PAGE .MuiFormControl-root:has(input[name*="url" i]) .MuiOutlinedInput-notchedOutline legend {
-    max-width: 0 !important;
-}
-
-/* 2) Luna Plugins/Themes: keep action controls aligned, without restyling cards. */
-.__NEPTUNE_PAGE :is(.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, .css-16a8gxx, .neptune-card) {
-    min-width: 0 !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.__NEPTUNE_PAGE :is(.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, .css-16a8gxx, .neptune-card) :is(button, .MuiButtonBase-root, .MuiSwitch-root, .MuiIconButton-root) {
-    align-self: center !important;
-    flex: 0 0 auto !important;
-    flex-shrink: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    transform: none !important;
-}
-
-.__NEPTUNE_PAGE :is(.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, .css-16a8gxx, .neptune-card) :is(a, p, span, .MuiTypography-root) {
-    min-width: 0 !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-}
-
-/* 3) Explore: use the existing dark base and align its arrows to the header text. */
-[data-test-page-name="explore"] {
-    background-color: var(--solo-bg) !important;
-    background-image: none !important;
-    --wave-color-text-main: var(--solo-text) !important;
-    --market-core-text-10-color: var(--solo-text) !important;
-}
-
-[data-test-page-name="explore"] ._header_d2e600f {
-    display: flex !important;
-    align-items: center !important;
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-[data-test-page-name="explore"] ._header_d2e600f ._title_d3f5c62 {
-    align-self: center !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-[data-test-page-name="explore"] :is(._buttonContainer_a07db07, .css-8iwxr),
-[data-test-page-name="explore"] :is(._buttonContainer_a07db07 button, .css-1xlzpjd, .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button) {
-    align-self: center !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    transform: none !important;
-}
-
-[data-test-page-name="explore"] :is(._buttonContainer_a07db07 svg, .css-1xlzpjd svg) {
-    display: block !important;
-    margin: 0 !important;
-    transform: none !important;
-}
-
-/* 4) A currently playing row must visually win over the last manual selection. */
-._tableRow_299a426._tableRowIsPlaying_a59b9fa,
-._tableRow_299a426[class*="_tableRowIsPlaying_"],
-._rowContainer_ebb4cfc[class*="_playing_"],
-._rowContainer_ebb4cfc[aria-current="true"] {
-    background: rgba(255, 255, 255, .10) !important;
-    background-color: rgba(255, 255, 255, .10) !important;
-    background-image: none !important;
-    border-radius: .8em !important;
-    box-shadow: none !important;
-    animation: none !important;
-    --vv: var(--solo-text) !important;
-    --zz: var(--solo-text) !important;
-    --wave-color-text-main: var(--solo-text) !important;
-    --market-core-text-10-color: var(--solo-text) !important;
-}
-
-._tableRow_299a426._tableRowIsPlaying_a59b9fa :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"], time),
-._tableRow_299a426[class*="_tableRowIsPlaying_"] :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"], time),
-._rowContainer_ebb4cfc[class*="_playing_"] :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"], time),
-._rowContainer_ebb4cfc[aria-current="true"] :is([data-wave-color="textDefault"], [class*="_titleText_"], [class*="_artistText_"], [class*="_albumText_"], [class*="_link_"], time) {
+/* --- LUNA SETTINGS FIXES --- */
+[data-test="settings-page"] .MuiInputBase-root,
+[data-test="settings-page"] .MuiInputBase-input {
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
 }
 
-._tableRow_299a426._tableRowIsPlaying_a59b9fa :is(svg, svg use),
-._tableRow_299a426[class*="_tableRowIsPlaying_"] :is(svg, svg use),
-._rowContainer_ebb4cfc[class*="_playing_"] :is(svg, svg use),
-._rowContainer_ebb4cfc[aria-current="true"] :is(svg, svg use) {
+[data-test="settings-page"] .MuiInputLabel-root.Mui-focused,
+[data-test="settings-page"] .MuiInputLabel-root.MuiFormLabel-filled {
     color: var(--solo-text) !important;
-    fill: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
 }
 
-._tableRow_299a426._tableRowSelected_fb04c2a:not(._tableRowIsPlaying_a59b9fa):not([class*="_tableRowIsPlaying_"]),
-._rowContainer_ebb4cfc._selected_8f556cc:not([class*="_playing_"]):not([aria-current="true"]) {
-    background: rgba(255, 255, 255, .075) !important;
-    background-color: rgba(255, 255, 255, .075) !important;
+[data-test="settings-page"] fieldset legend {
+    color: transparent !important; /* Fix for the outline cutting through the text */
+}
+
+/* Fix plugin/theme rows */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    height: auto !important;
+    min-height: 56px !important;
+}
+
+/* Force inner contents to behave */
+.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > * {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
+/* The left side (text/links) */
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, .css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 !important;
+}
+
+/* The right side (buttons) */
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, .css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: auto !important;
+}
+
+/* Force round explore arrows */
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Nuke all tracklist container borders */
+[class*="_defaultStyles_"], [class*="_grid_"], [class*="_moduleContainer_"] {
+    border: none !important;
+    border-color: transparent !important;
+    border-width: 0 !important;
+    border-style: none !important;
+}
+
+/* --- SPEAKER ICON FIX --- */
+/* Ensure the speaker icon container is visible when playing */
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c, 
+._overlayIconWrapper_6331eb1 span[class*="PlaybackVolume"] {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c svg,
+._overlayIconWrapper_6331eb1 span[class*="PlaybackVolume"] svg {
+    display: block !important;
+    opacity: 1 !important;
+    fill: var(--vv) !important;
+}
+
+/* =========================================================
+   V4 FIXES: SETTINGS, EXPLORE PILLS, BORDERS, SPEAKER ICON
+   ========================================================= */
+
+/* 1 & 2. LUNA SETTINGS INPUT & BUTTON LAYOUT */
+.MuiInputBase-root, .MuiInputBase-input, .MuiFormLabel-root {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+.MuiOutlinedInput-notchedOutline legend span {
+    color: transparent !important;
+}
+
+/* Force wrapping text to truncate with ellipsis and buttons to stay right */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 52px !important;
+}
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, 
+.css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important; 
+    overflow: hidden !important;
+}
+.css-1m2j012 > div:first-child p, .css-1m2j012 > div:first-child a, 
+.css-1v59atl > div:first-child p, .css-1v59atl > div:first-child a,
+.css-1m2uggs > div:first-child p, .css-1m2uggs > div:first-child a,
+.css-1l78aht > div:first-child p, .css-1l78aht > div:first-child a {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, 
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    flex: 0 0 auto !important;
+    flex-direction: row !important;
+    white-space: nowrap !important;
+}
+
+/* 3. EXPLORE PILLS & ARROW ALIGNMENT */
+/* All pill buttons in Explore to match the #09090b background */
+._shortcutItem_6c8e7b4,
+._viewAllButton_4b4f90c > ._marketText_1lyag_1,
+.css-1xlzpjd, 
+.css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
+[data-test-page-name="explore"] a[class*="_link_"] > div,
+[data-test-page-name="explore"] ._card_38c6c04,
+[data-test-page-name="explore"] button:not([class*="_rightButton_"]):not([class*="_leftButton_"]):not(._contextMenuButton_4c9ff38) {
+    background: #09090b !important;
+    background-color: #09090b !important;
     background-image: none !important;
     box-shadow: none !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
     animation: none !important;
+}
+[data-test-page-name="explore"] ._shortcutItem_6c8e7b4:hover,
+[data-test-page-name="explore"] ._card_38c6c04:hover {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Vertically align the arrows with "View all" */
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    align-self: center !important;
+    transform: translateY(2px) !important; /* Pulls the arrow down slightly to center it visually */
+}
+
+/* 5. NUKE TRACKLIST OUTER BORDERS GLOBALLY */
+._tableContainer_556e9aa,
+._items_8615603,
+._grid_97562f5,
+._moduleContainer_c7ad3d9,
+[data-test-page-name="playlist"] ._defaultStyles_a1b9da9 > div,
+._myTracks_cf06933 > div > div,
+.is-intersecting._occlusion_de6b9d3._defaultStyles_a1b9da9.TRACK_LIST.tidal-ui__occlusion,
+.is-intersecting._occlusion_de6b9d3._defaultStyles_a1b9da9.ALBUM_ITEMS.tidal-ui__occlusion {
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* 6. RESTORE SPEAKER ICON */
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c,
+[class*="PlaybackVolume"] {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+._backgroundLow_529dd3c._icon_77f3f89 > use,
+._backgroundHigh_5fbfac8._icon_77f3f89 > use,
+._backgroundMax_6e0bc55._icon_77f3f89 > use,
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c use {
+    fill: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* =========================================================
+   V5 FIXES: INPUT LABEL, SETTINGS ROWS, EXPLORE, TRACKS, SPEAKER
+   ========================================================= */
+
+/* 1. LUNA SETTINGS INPUT (Float above border & fix overlap) */
+[data-test="settings-page"] .MuiInputLabel-root.Mui-focused,
+[data-test="settings-page"] .MuiInputLabel-root.MuiFormLabel-filled {
+    transform: translate(14px, -9px) scale(0.75) !important;
+    background-color: #09090b !important;
+    padding: 0 4px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+[data-test="settings-page"] fieldset legend {
+    max-width: 100% !important;
+    color: transparent !important;
+}
+
+/* 2. LUNA SETTINGS BUTTONS (Strict Grid/Flex to stop jumping) */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 64px !important; /* Fixed height */
+    padding: 0 16px !important;
+}
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, 
+.css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, 
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 16px !important;
+}
+.css-sot3eg button, .css-sot3eg .MuiSwitch-root {
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* 3. EXPLORE PILLS (Dark #09090b and Arrow alignment) */
+[data-test-page-name="explore"] ._item_235a32d,
+[data-test-page-name="explore"] ._card_38c6c04,
+[data-test-page-name="explore"] a[class*="_link_"] > div,
+[data-test-page-name="explore"] a[class*="_item_"],
+[data-test-page-name="explore"] div[role="button"]:not([class*="_rightButton_"]):not([class*="_leftButton_"]) {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    background-image: none !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+[data-test-page-name="explore"] ._item_235a32d:hover,
+[data-test-page-name="explore"] ._card_38c6c04:hover {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+}
+/* Arrow alignment */
+[data-test-page-name="explore"] ._buttonContainer_a07db07 {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    transform: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 4. TRACKLIST NUMBERS & ACTIVE HIGHLIGHT */
+/* Fix grey numbers */
+._indexNumber_de640b9, [data-test="mt-index-col"] span {
+    color: #ffffff !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+/* Default highlight for currently playing track */
+div[data-test-is-playing="true"], ._tableRowIsPlaying_a59b9fa {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+}
+/* Remove residual highlight from merely clicking a track */
+div[data-test="tracklist-row"][aria-selected="true"]:not([data-test-is-playing="true"]):not(:focus-within) {
+    background-color: transparent !important;
+}
+
+/* 5. SPEAKER ICON (Bulletproof fix for missing icon) */
+div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
+div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
 }
