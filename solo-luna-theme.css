@@ -940,19 +940,12 @@ tr._rowContainer_ebb4cfc:hover{
 ._timeColumn_3cd7564{color: var(--vv)!Important;}}
 ._notCircleIcon_dad7d82._iconButton_4b3ed40._noPadding_9cb3eea._playButton_4942431 > ._icon_77f3f89 > use
 {fill: color-mix(in srgb, rgb(var(--cover-Vib1),1) 55% , rgba(255, 255, 255, 1) 45%);}
-._tableRow_299a426._tableRowSelected_fb04c2a._tableRowSelectGroupStart_cf1af82._tableRowSelectGroupEnd_b4631c2,._rowContainer_ebb4cfc._selected_8f556cc
+._tableRow_299a426._tableRowSelected_fb04c2a,._rowContainer_ebb4cfc._selected_8f556cc, ._tableRow_299a426.selected, div[data-test="tracklist-row"][aria-selected="true"], div[data-test="tracklist-row"]:focus-within
 {border-radius: .8em;
-    box-shadow: inset 0px 0px 1.5em var(--trackselshad);
-    background-color:  color-mix(in srgb, rgb(var(--cover-Vib2),.6) 95% , rgba(0, 0, 0, 0.45) 5%) !important;
-    animation: gradient 155s ease-in-out infinite !important;
-    background-image:
-    radial-gradient(ellipse at center,rgba(0, 0, 0, 0) , rgba(0, 0, 0, 0.1) 110%),
-    linear-gradient(155deg,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    ,var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color),var(--brunk-color), var(--brunk-color),var(--skrunk-color)
-    )!Important;
-background-size: 1400% 1400%!important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    animation: none !important;
+    background-image: none !important;
 transition: 400ms;
 [class^="_indexNumber_"]{color: var(--vv) !important; transition: 150ms;}
 ._backgroundLow_529dd3c._icon_77f3f89 > use{fill:var(--vv); transition: 450ms; }
@@ -1049,14 +1042,7 @@ filter: saturate(1.02) brightness(1.05) !important;
   -----------------------------------------------======================================== */
   /*track border line*/
  div:nth-child(1) > div> div,div._mediaTable_8895569 > div:nth-child(1) > div{border-style: none;}
-._tableRow_299a426{border-radius: .8em;border-style: solid none none none;border-width: 2px;
-border-image: linear-gradient(to right,
-#0000 1em,
-#0000 2%,
-var(--tracksborder) 20%,
-var(--tracksborder) 80%,
-#ffffff00  calc(100% - 1.5em),
-#0000 100%) 1 ;}
+._tableRow_299a426{border-radius: .8em;border-style: none !important;border-image: none !important;}
 ._filter_8933b89{margin-bottom: 1.15em!Important;}
 ._coverImage_1b29507{ border-radius: .45em;}
 /* ==========================================.............................................
@@ -2690,16 +2676,13 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] .css-1xlzpjd,
 [data-test-page-name="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
- [data-track--page-id*="explore"] .css-1xlzpjd,
- [data-track--page-id*="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
-.css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
-._buttonContainer_a07db07 button {
-    background: var(--solo-bg) !important;
-    background-color: var(--solo-bg) !important;
+._buttonContainer_a07db07 button, button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    background: transparent !important;
+    background-color: transparent !important;
     background-image: none !important;
     color: var(--solo-text) !important;
     border: none !important;
-    border-radius: 999px !important;
+    border-radius: 50% !important;
     outline: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -2711,20 +2694,15 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07 button:hover,
 [data-test-page-name="explore"] .css-1xlzpjd:hover,
-[data-track--page-id*="explore"] ._buttonContainer_a07db07 button:hover,
-[data-track--page-id*="explore"] .css-1xlzpjd:hover,
-._buttonContainer_a07db07 button:hover {
-    background: var(--solo-hover) !important;
-    background-color: var(--solo-hover) !important;
+._buttonContainer_a07db07 button:hover, button[class*="_rightButton_"]:hover, button[class*="_leftButton_"]:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
     color: white !important;
     border-color: transparent !important;
 }
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07,
-[data-test-page-name="explore"] .css-8iwxr,
-[data-track--page-id*="explore"] ._buttonContainer_a07db07,
-[data-track--page-id*="explore"] .css-8iwxr,
-.css-8iwxr.tidal-ui__spacer {
+[data-test-page-name="explore"] .css-8iwxr {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
@@ -2740,34 +2718,6 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 ._icon_41aad12 {
     color: currentColor !important;
     fill: currentColor !important;
-}
-
-/* Explore uses both named page attributes and an unscoped horizontal scroller. */
-:is([data-test-page-name*="explore"], [data-track--page-id*="explore"]) {
-    background: var(--solo-bg) !important;
-    background-color: var(--solo-bg) !important;
-    background-image: none !important;
-    --wave-color-background-base: var(--solo-bg) !important;
-    --wave-color-background-fill-primary: var(--solo-bg) !important;
-}
-
-:is([data-test-page-name*="explore"], [data-track--page-id*="explore"]) :is([class*="_scrollButton_"], [class*="_navigationButton_"], [class*="_buttonContainer_"]) button,
-._buttonContainer_a07db07 > button,
-.css-1xlzpjd.tidal-ui__button {
-    width: 36px !important;
-    min-width: 36px !important;
-    height: 36px !important;
-    min-height: 36px !important;
-    padding: 0 !important;
-    border-radius: 8px !important;
-    background: var(--solo-raised) !important;
-    background-color: var(--solo-raised) !important;
-    background-image: none !important;
-    border: 1px solid var(--solo-border) !important;
-    box-shadow: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    animation: none !important;
 }
 
 /* =========================================================
@@ -2856,11 +2806,14 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     color: var(--solo-text) !important;
 }
 
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root),
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).Mui-focused,
-.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).MuiFormLabel-filled {
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root) {
     color: var(--solo-text-secondary) !important;
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
+}
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).Mui-focused,
+.css-sot3eg :is(.MuiInputLabel-root, .MuiFormLabel-root).MuiFormLabel-filled {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
 }
 
 .css-sot3eg .MuiOutlinedInput-root,
@@ -2883,24 +2836,27 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     background: #f3f3f5 !important;
 }
 
-.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, .css-16a8gxx {
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, [class*="SettingRow"], .luna-theme-item {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 52px !important;
 }
 
-.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *, .css-16a8gxx > *,
+.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *,
 .css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root,
-.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root, .css-16a8gxx .MuiStack-root {
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
     min-width: 0 !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
 }
 
-.css-1m2j012 a[href^="http"], .css-1v59atl a[href^="http"], .css-1m2uggs a[href^="http"], .css-1l78aht a[href^="http"], .css-16a8gxx a[href^="http"],
-.css-1m2j012 p, .css-1v59atl p, .css-1m2uggs p, .css-1l78aht p, .css-16a8gxx p {
+.css-1m2j012 a[href^="http"], .css-1v59atl a[href^="http"], .css-1m2uggs a[href^="http"], .css-1l78aht a[href^="http"],
+.css-1m2j012 p, .css-1v59atl p, .css-1m2uggs p, .css-1l78aht p {
     min-width: 0 !important;
     flex: 1 1 0 !important;
     max-width: 100% !important;
@@ -2909,8 +2865,8 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     box-sizing: border-box !important;
 }
 
-.css-1m2j012 button, .css-1v59atl button, .css-1m2uggs button, .css-1l78aht button, .css-16a8gxx button,
-.css-1m2j012 .MuiSwitch-root, .css-1v59atl .MuiSwitch-root, .css-1m2uggs .MuiSwitch-root, .css-1l78aht .MuiSwitch-root, .css-16a8gxx .MuiSwitch-root {
+.css-1m2j012 button, .css-1v59atl button, .css-1m2uggs button, .css-1l78aht button,
+.css-1m2j012 .MuiSwitch-root, .css-1v59atl .MuiSwitch-root, .css-1m2uggs .MuiSwitch-root, .css-1l78aht .MuiSwitch-root {
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
     align-self: center !important;
@@ -2983,58 +2939,6 @@ body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role=
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
     text-shadow: none !important;
-}
-
-/* The artist hover preview is a portal card, not a tooltip inside the player. */
-._card_2b91b88 {
-    --wave-color-text-main: var(--solo-text) !important;
-    --wave-color-text-secondary: var(--solo-text-secondary) !important;
-    --market-core-text-10-color: var(--solo-text) !important;
-    background: var(--solo-raised) !important;
-    background-color: var(--solo-raised) !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    border: 1px solid var(--solo-border) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .45) !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    animation: none !important;
-}
-
-._card_2b91b88::before,
-._card_2b91b88::after,
-._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"])::before,
-._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"])::after {
-    background: transparent !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-}
-
-._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"]) {
-    background: var(--solo-raised) !important;
-    background-color: var(--solo-raised) !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    box-shadow: none !important;
-    filter: none !important;
-}
-
-._card_2b91b88 :is(.wave-text-description-demi, ._marketText_1lyag_1, p, span, a) {
-    color: var(--solo-text) !important;
-    -webkit-text-fill-color: var(--solo-text) !important;
-    text-shadow: none !important;
-}
-
-._card_2b91b88 :is(button, [role="button"]) {
-    background: var(--solo-hover) !important;
-    background-color: var(--solo-hover) !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    border-color: var(--solo-border) !important;
-    box-shadow: none !important;
-    filter: none !important;
-    animation: none !important;
 }
 
 /* QUALITY BADGES */
@@ -3125,31 +3029,6 @@ body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role=
     --trackseltxt: var(--solo-text) !important;
     --wave-color-text-main: var(--solo-text) !important;
     --wave-color-text-secondary: var(--solo-text-secondary) !important;
-    background: var(--solo-hover) !important;
-    background-color: var(--solo-hover) !important;
-    background-image: none !important;
-    border: none !important;
-    border-image: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-    animation: none !important;
-    transition: background-color 120ms ease !important;
-}
-
-/* Remove the framed panel inherited from the original TRACK_LIST module. */
-[class*="TRACK_LIST"].tidal-ui__occlusion,
-._tableContainer_556e9aa,
-._mediaTable_8895569,
-._container_928ac6c {
-    border: none !important;
-    border-color: transparent !important;
-    border-width: 0 !important;
-    border-image: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background-image: none !important;
-    backdrop-filter: none !important;
 }
 
 ._tableRow_299a426._tableRowSelected_fb04c2a ._artistText_a1c7611,
@@ -3339,9 +3218,9 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 [data-test-page-name="my-collection"] .css-ohr3gy,
 [data-test-page-name="my-collection"] .css-17bbmu3,
 [data-track--page-id="mycollection_playlists"] .css-ohr3gy,
-[data-track--page-id="mycollection_playlists"] .css-17bbmu3 {
-    background: var(--solo-bg) !important;
-    background-color: var(--solo-bg) !important;
+[data-track--page-id="mycollection_playlists"] .css-17bbmu3, .fx-hover-controls, ._fxHoverControls_cb86dc6, [class*="_overlayIconWrapperAlbum_"] {
+    background: rgba(0, 0, 0, 0.4) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
@@ -3410,28 +3289,11 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 }
 
 [data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
-[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
-[data-test-page-name*="collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
-[data-track--page-id*="collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"] {
+[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover [class*="_overlay_"] {
     background: transparent !important;
     background-image: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    filter: none !important;
-}
-
-:is([data-test-page-name*="collection"], [data-track--page-id*="collection"]) :is(._cellContainer_19b23ad, ._card_38c6c04):hover :is(img, picture, [class*="_cellImage_"], [class*="_coverImage_"], [class*="_thumbnail_"], [class*="_imageWrapper_"]) {
     opacity: 1 !important;
     visibility: visible !important;
-    filter: none !important;
-    mix-blend-mode: normal !important;
-}
-
-:is([data-test-page-name*="collection"], [data-track--page-id*="collection"]) :is(._cellContainer_19b23ad, ._card_38c6c04):hover :is([class*="_overlay_"], [class*="_scrim_"]) {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    background: transparent !important;
-    background-image: none !important;
     filter: none !important;
 }
 
@@ -3457,64 +3319,4 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 [data-track--page-id*="mix"] ._card_38c6c04 ._marketText_1lyag_1:not(._titleText_9e9bb51) {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-}
-
-/* 1. ИНПУТ "INSTALL FROM URL" (Фикс черного текста) */
-/* Бьем по лейблам Material UI, когда инпут в фокусе */
-.MuiFormControl-root:focus-within label.MuiInputLabel-root,
-.MuiInputBase-root:focus-within ~ label.MuiInputLabel-root,
-.MuiInputLabel-root.Mui-focused {
-    color: var(--text-primary, #ffffff) !important;
-}
-
-/* 2. ЕДУЩИЕ КНОПКИ В ТЕМАХ */
-/* К сожалению, в HTML нет куска кода самой строки настроек (ты скинул два раза инпут), 
-но если они используют стандартные карточки Luna, этот фикс должен сработать */
-[class*="SettingRow"],
-.luna-theme-item,
-.MuiFormControl-root {
-    display: flex;
-    align-items: center;
-    min-height: 48px;
-}
-
-/* 3. EXPLORE УЕБАНСКИЕ СТРЕЛКИ */
-/* Превращаем кнопки карусели со стрелками в аккуратные круги */
-button[class*="_rightButton_"],
-button[class*="_leftButton_"] {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 50% !important;
-    box-shadow: none !important;
-    backdrop-filter: blur(4px) !important;
-}
-button[class*="_rightButton_"]:hover,
-button[class*="_leftButton_"]:hover {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-}
-/* Фикс фона в Explore (на случай, если старый не срабатывал) */
-[data-test="explore-page"],
-div[class*="explore"] {
-    background: transparent !important;
-}
-
-/* 4. ЗАТЕМНЕНИЕ ОБЛОЖЕК В COLLECTION (И ГДЕ УГОДНО) */
-/* Ловим контейнер с кнопками Play/Heart при наведении. 
-В коде это fx-hover-controls или overlayIconWrapper */
-div[class*="fx-hover-controls"],
-div[class*="_overlayIconWrapper_"],
-div[class*="_fxHoverControls_"] {
-    background-color: rgba(0, 0, 0, 0.4) !important; /* 40% затемнения вместо 100% */
-}
-
-/* 5. РАМКА И ЗАСВЕТ В ТРЕКАХ */
-/* Убиваем рамку у строк таблицы треков при клике/выделении */
-div[role="row"]:focus-within,
-div[role="row"][aria-selected="true"],
-div[data-test="tracklist-row"]:focus-within,
-div[class*="_tableRow_"]:focus-within {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important; /* Именно это дает засвет/рамку */
-    background-color: rgba(255, 255, 255, 0.08) !important; /* Легкая подсветка фона */
 }
