@@ -3405,3 +3405,113 @@ button[class*="_rightButton_"], button[class*="_leftButton_"] {
     opacity: 1 !important;
     fill: var(--vv) !important;
 }
+
+/* =========================================================
+   V4 FIXES: SETTINGS, EXPLORE PILLS, BORDERS, SPEAKER ICON
+   ========================================================= */
+
+/* 1 & 2. LUNA SETTINGS INPUT & BUTTON LAYOUT */
+.MuiInputBase-root, .MuiInputBase-input, .MuiFormLabel-root {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+.MuiOutlinedInput-notchedOutline legend span {
+    color: transparent !important;
+}
+
+/* Force wrapping text to truncate with ellipsis and buttons to stay right */
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 52px !important;
+}
+.css-1m2j012 > div:first-child, .css-1v59atl > div:first-child, 
+.css-1m2uggs > div:first-child, .css-1l78aht > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important; 
+    overflow: hidden !important;
+}
+.css-1m2j012 > div:first-child p, .css-1m2j012 > div:first-child a, 
+.css-1v59atl > div:first-child p, .css-1v59atl > div:first-child a,
+.css-1m2uggs > div:first-child p, .css-1m2uggs > div:first-child a,
+.css-1l78aht > div:first-child p, .css-1l78aht > div:first-child a {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+.css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root, 
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+    flex: 0 0 auto !important;
+    flex-direction: row !important;
+    white-space: nowrap !important;
+}
+
+/* 3. EXPLORE PILLS & ARROW ALIGNMENT */
+/* All pill buttons in Explore to match the #09090b background */
+._shortcutItem_6c8e7b4,
+._viewAllButton_4b4f90c > ._marketText_1lyag_1,
+.css-1xlzpjd, 
+.css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
+[data-test-page-name="explore"] a[class*="_link_"] > div,
+[data-test-page-name="explore"] ._card_38c6c04,
+[data-test-page-name="explore"] button:not([class*="_rightButton_"]):not([class*="_leftButton_"]):not(._contextMenuButton_4c9ff38) {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    animation: none !important;
+}
+[data-test-page-name="explore"] ._shortcutItem_6c8e7b4:hover,
+[data-test-page-name="explore"] ._card_38c6c04:hover {
+    background: #1c1c1f !important;
+    background-color: #1c1c1f !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Vertically align the arrows with "View all" */
+button[class*="_rightButton_"], button[class*="_leftButton_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    align-self: center !important;
+    transform: translateY(2px) !important; /* Pulls the arrow down slightly to center it visually */
+}
+
+/* 5. NUKE TRACKLIST OUTER BORDERS GLOBALLY */
+._tableContainer_556e9aa,
+._items_8615603,
+._grid_97562f5,
+._moduleContainer_c7ad3d9,
+[data-test-page-name="playlist"] ._defaultStyles_a1b9da9 > div,
+._myTracks_cf06933 > div > div,
+.is-intersecting._occlusion_de6b9d3._defaultStyles_a1b9da9.TRACK_LIST.tidal-ui__occlusion,
+.is-intersecting._occlusion_de6b9d3._defaultStyles_a1b9da9.ALBUM_ITEMS.tidal-ui__occlusion {
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* 6. RESTORE SPEAKER ICON */
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c,
+[class*="PlaybackVolume"] {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+._backgroundLow_529dd3c._icon_77f3f89 > use,
+._backgroundHigh_5fbfac8._icon_77f3f89 > use,
+._backgroundMax_6e0bc55._icon_77f3f89 > use,
+._indexCellPlaybackVolumeMaxIconContainer_71bb86c use {
+    fill: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
