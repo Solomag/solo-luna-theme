@@ -3617,3 +3617,172 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     fill: #ffffff !important;
     color: #ffffff !important;
 }
+
+
+/* =========================================================
+   SOLO v5.2 — TARGETED REPAIR PATCH
+   Uses the current Luna DOM captured on 2026-08-28.
+   No global card/button/track overrides.
+   ========================================================= */
+
+/* 1. Themes / "Install from URL": fixed label above the field. */
+.MuiTextField-root.css-1vbfw84 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    row-gap: 6px !important;
+}
+
+.MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root {
+    position: static !important;
+    grid-row: 1 !important;
+    grid-column: 1 !important;
+    display: block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    transform-origin: left top !important;
+    font-size: .875rem !important;
+    line-height: 1.25rem !important;
+    color: var(--solo-text-secondary) !important;
+    -webkit-text-fill-color: var(--solo-text-secondary) !important;
+    pointer-events: none !important;
+}
+
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root {
+    grid-row: 2 !important;
+    grid-column: 1 !important;
+    margin: 0 !important;
+}
+
+.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend {
+    max-width: 0 !important;
+}
+
+/* 2. Themes / Plugins rows: one stretchable URL/title column + fixed controls. */
+.MuiStack-root.css-1mzerio {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto auto !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+    row-gap: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.MuiStack-root.css-1mzerio > .MuiTypography-root {
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+.MuiStack-root.css-1mzerio > .MuiTypography-root > a {
+    display: block !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.MuiStack-root.css-1mzerio > .MuiSwitch-root,
+.MuiStack-root.css-1mzerio > .MuiIconButton-root,
+.MuiStack-root.css-1mzerio > .MuiBox-root {
+    align-self: center !important;
+    justify-self: center !important;
+    flex: none !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+.MuiStack-root.css-1mzerio > .MuiSwitch-root {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* 3. Explore: cards are #09090b; arrows retain transparent background. */
+[data-test-page-name="explore"] ._item_235a32d,
+[data-test-page-name="explore"] ._card_38c6c04 {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    background-image: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+[data-test-page-name="explore"] ._item_235a32d:hover,
+[data-test-page-name="explore"] ._card_38c6c04:hover {
+    background: #09090b !important;
+    background-color: #09090b !important;
+}
+
+[data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    align-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(0) !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    line-height: 1 !important;
+}
+
+[data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) > svg {
+    display: block !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* 4. Tracklist: only the actual playing row is highlighted.
+   The copied playing-row DOM exposes data-test-is-playing="true". */
+[data-test="tracklist-row"][data-test-is-playing="true"] {
+    background: rgba(255, 255, 255, .08) !important;
+    background-color: rgba(255, 255, 255, .08) !important;
+    background-image: none !important;
+    border-radius: .8em !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+
+[data-test="tracklist-row"][data-test-is-playing="true"] :is(
+    ._titleText_51cccae,
+    ._artistText_a1c7611,
+    ._artistText_a1c7611 a,
+    ._albumText_ddf6a0e,
+    ._timeColumn_f70e963 time,
+    ._dateAddedColumn_87dfbd3 time,
+    ._indexNumber_de640b9
+) {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
+
+/* The volume icon stays in its normal overlay position; do not force it to block. */
+[data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
+[data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+[data-test="tracklist-row"][data-test-is-playing="true"] ._backgroundMax_6e0bc55,
+[data-test="tracklist-row"][data-test-is-playing="true"] ._backgroundMax_6e0bc55 use {
+    fill: var(--solo-text) !important;
+    color: var(--solo-text) !important;
+}
+
+/* A selected but non-playing row must not borrow the playing-row styling. */
+[data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a {
+    background-image: none !important;
+}
