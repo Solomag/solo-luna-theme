@@ -3458,3 +3458,60 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     overflow: hidden !important;
     text-overflow: ellipsis !important;
 }
+
+/* Фикс цвета текста лейбла при фокусе на инпут */
+.luna-settings-input-container:focus-within label,
+.luna-input-wrapper input:focus ~ label {
+    color: var(--text-primary, #ffffff) !important; 
+}
+
+/* Фикс прыгающих кнопок в списке тем/плагинов */
+.luna-theme-item, 
+.luna-plugin-item,
+[class*="SettingRow"] {
+    display: flex !important;
+    align-items: center !important; /* Центрируем всё по вертикали */
+    justify-content: space-between !important;
+    height: auto !important;
+    min-height: 48px; /* Задаем адекватную минимальную высоту */
+}
+
+/* Фикс фона для Explore, чтобы он сливался с остальным приложением */
+[data-test="explore-page"],
+#main-wrapper [class*="explore"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Причесываем стрелки карусели */
+button[data-test="carousel-right-arrow"], 
+button[data-test="carousel-left-arrow"] {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Легкий полупрозрачный фон */
+    border-radius: 50% !important; /* Делаем их круглыми */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Аккуратная рамка */
+    backdrop-filter: blur(4px) !important;
+    box-shadow: none !important;
+}
+
+button[data-test="carousel-right-arrow"]:hover, 
+button[data-test="carousel-left-arrow"]:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Фикс затемнения обложек */
+[data-test="grid-item"]:hover [class*="image-overlay"],
+[data-test="image-wrapper"]:hover::after,
+[class*="media-item"]:hover [class*="overlay"] {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* 50% затемнения вместо глухого черного */
+    opacity: 1 !important;
+}
+
+/* Убираем рамку и засвет с выделенного трека */
+[data-test="tracklist-row"].selected,
+[data-test="tracklist-row"]:focus-within,
+[data-test="tracklist-row"][aria-selected="true"] {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: rgba(255, 255, 255, 0.08) !important; /* Легкая подсветка фона вместо рамки */
+}
