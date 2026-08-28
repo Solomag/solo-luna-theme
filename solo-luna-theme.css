@@ -3620,11 +3620,11 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 
 
 /* =========================================================
-   SOLO v5.2 — TARGETED LUNA REPAIR v2 (2026-08-28)
-   Original v5.2 retained unchanged; this block is appended.
+   SOLO v5.2 — CONSOLIDATED TARGETED PATCH (2026-08-28)
+   Appended to the untouched original v5.2 stylesheet.
    ========================================================= */
 
-/* 1. Themes / Install from URL — confirmed layout, dark neutral input. */
+/* 1) Luna Themes: fixed "Install from URL" label and neutral input surface. */
 .MuiTextField-root.css-1vbfw84 {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
@@ -3638,10 +3638,12 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     margin: 0 !important;
     padding: 0 !important;
     transform: none !important;
+    transform-origin: left top !important;
     font-size: .875rem !important;
     line-height: 1.25rem !important;
     color: var(--solo-text-secondary) !important;
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
+    pointer-events: none !important;
 }
 .MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root {
     grid-area: 2 / 1 !important;
@@ -3650,17 +3652,20 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     background-color: #09090b !important;
     background-image: none !important;
 }
-.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root > input { background: transparent !important; }
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root > input {
+    background: transparent !important;
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline { border-color: rgba(255,255,255,.08) !important; }
 .MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width: 0 !important; }
 
-/* 2. Plugins — actual DOM is css-1mzerio and has 4 action buttons:
-   switch, Reload, Live reload, Settings and Uninstall.
-   Grid has a left text column and a right-aligned six-control grid. */
+/* 2) Plugins: title/author at left, every functional control at right.
+   The real row has switch + Reload + Live reload + Show/Hide settings + Uninstall. */
 .MuiStack-root.css-1mzerio {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto auto auto auto auto !important;
-    grid-template-rows: auto auto !important;
+    grid-template-rows: auto auto auto !important;
     align-items: center !important;
     column-gap: 8px !important;
     row-gap: 1px !important;
@@ -3683,10 +3688,7 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
 }
-.MuiStack-root.css-1mzerio > .MuiSwitch-root {
-    grid-column: 2 !important;
-    grid-row: 1 / span 2 !important;
-}
+.MuiStack-root.css-1mzerio > .MuiSwitch-root { grid-column: 2 !important; grid-row: 1 / span 2 !important; }
 .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column: 3 !important; grid-row: 1 / span 2 !important; }
 .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Enable live reloading (for development)"] { grid-column: 4 !important; grid-row: 1 / span 2 !important; }
 .MuiStack-root.css-1mzerio > .MuiIconButton-root[aria-label="Show settings"],
@@ -3699,9 +3701,9 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     margin: 0 !important;
     transform: none !important;
 }
-/* Existing empty spacer is non-semantic and caused the huge gaps. */
+/* Empty spacer is responsible for the giant gaps. */
 .MuiStack-root.css-1mzerio > .MuiBox-root.css-i9gxme { display: none !important; }
-/* Author is an actual MuiStack sibling, not a MuiBox. Put it under title. */
+/* Author is a sibling stack: keep it below title and hide only its avatar. */
 .MuiStack-root.css-1mzerio > .MuiStack-root[author] {
     display: flex !important;
     grid-column: 1 !important;
@@ -3722,16 +3724,37 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     font-size: .78rem !important;
     line-height: 1rem !important;
 }
+/* Any opened plugin-settings panel is a direct child that is neither title, control,
+   spacer nor author. Force it below the complete header so hide/settings remains usable. */
+.MuiStack-root.css-1mzerio > :not(.MuiTypography-h6):not(.MuiSwitch-root):not(.MuiIconButton-root):not(.MuiBox-root.css-i9gxme):not(.MuiStack-root[author]) {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 8px !important;
+    box-sizing: border-box !important;
+}
+/* Disabled controls need to read as disabled, not disappear into black. */
+.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled, .MuiIconButton-root:disabled) {
+    color: rgba(255,255,255,.34) !important;
+    opacity: 1 !important;
+}
+.MuiStack-root.css-1mzerio > :is(.MuiIconButton-root.Mui-disabled, .MuiIconButton-root:disabled) :is(svg, path) {
+    color: rgba(255,255,255,.34) !important;
+    fill: currentColor !important;
+}
 
-/* 3. Explore genre cloud — this is the real #333333 surface.
-   It uses data-test="page-links-cloud-btn", not the generic card classes. */
+/* 3) Explore genre cloud: actual #333 source is --wave-color-opacity-contrast-fill-thin. */
 [data-test-page-name="explore"] [data-test="page-links-cloud"],
 [data-test-page-name="explore"] [data-test="page-links-cloud-row"] {
+    --wave-color-opacity-contrast-fill-thin: #09090b !important;
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
 }
-[data-test-page-name="explore"] a[data-test="page-links-cloud-btn"] {
+[data-test-page-name="explore"] a._button_3357ce6[data-test="page-links-cloud-btn"] {
+    --wave-color-opacity-contrast-fill-thin: #09090b !important;
     background: #09090b !important;
     background-color: #09090b !important;
     background-image: none !important;
@@ -3740,11 +3763,13 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     border-color: transparent !important;
     box-shadow: none !important;
 }
-[data-test-page-name="explore"] a[data-test="page-links-cloud-btn"]:hover {
+[data-test-page-name="explore"] a._button_3357ce6[data-test="page-links-cloud-btn"]:hover {
+    --wave-color-opacity-contrast-fill-thin: #1c1c1f !important;
     background: #1c1c1f !important;
     background-color: #1c1c1f !important;
     color: white !important;
 }
+/* Keep Explore carousel arrows transparent while retaining the corrected alignment. */
 [data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) {
     align-self: center !important;
     margin: 0 !important;
@@ -3758,7 +3783,7 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     box-shadow: none !important;
 }
 
-/* 4. Tracks — retain the confirmed distinct playing and manual-selection states. */
+/* 4) Tracks: playing row visibly wins; manual selection remains deliberately faint. */
 [data-test="tracklist-row"][data-test-is-playing="true"] {
     background: rgba(255,255,255,.12) !important;
     background-color: rgba(255,255,255,.12) !important;
@@ -3775,9 +3800,15 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     box-shadow: none !important;
     animation: none !important;
 }
+[data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
+[data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+}
 
-/* 5. Core native dialogs: Create playlist, Track radio and related panels.
-   Old theme explicitly makes ._dialog_148b5df light and black; override it locally. */
+/* 5) Native dark dialogs: Create playlist and related dialog family. */
 ._dialog_148b5df,
 ._dialog_148b5df ._container_2594b6b,
 ._dialog_148b5df ._upperContainer_97e8e88,
@@ -3819,25 +3850,25 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     background-image: none !important;
     filter: none !important;
 }
-._dialog_148b5df ._artworkImage_5bde5a4 {
-    filter: none !important;
-    mix-blend-mode: normal !important;
-    opacity: 1 !important;
-}
+._dialog_148b5df ._artworkImage_5bde5a4 { filter: none !important; mix-blend-mode: normal !important; opacity: 1 !important; }
+/* Crop button was omitted from earlier dialog action selectors. */
+._dialog_148b5df button[data-test="crop-image-button"],
 ._dialog_148b5df ._button_94c5125,
 ._dialog_148b5df ._button_538cfb3 {
     background: #1c1c1f !important;
     background-color: #1c1c1f !important;
     background-image: none !important;
     color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
     border-color: rgba(255,255,255,.08) !important;
     box-shadow: none !important;
+    animation: none !important;
 }
+._dialog_148b5df button[data-test="crop-image-button"]:hover,
 ._dialog_148b5df ._button_94c5125:hover,
 ._dialog_148b5df ._button_538cfb3:hover { background-color: #28282d !important; }
 
-/* Track Radio cover and header controls: kill inherited whitening/brightening.
-   Button selectors are restricted to normal primary/secondary action buttons. */
+/* Track Radio album art: only cancel inherited brightening, do not recolor the artwork. */
 ._coverArt_68a3984,
 ._coverArt_68a3984 .css-1ksq8je,
 ._coverArt_68a3984 .css-1tk08rl,
@@ -3845,27 +3876,5 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     filter: none !important;
     opacity: 1 !important;
     mix-blend-mode: normal !important;
-    background: transparent !important;
-    background-color: transparent !important;
     box-shadow: none !important;
-}
-._coverArt_68a3984 img[data-test="cover-art"] { filter: brightness(1) saturate(1) contrast(1) !important; }
-._actionContainer_9da0cc3 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
-._actionContainer_5bb1c14 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
-._actionContainer_5552083 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7),
-._actionContainer_7bd364b :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) {
-    background: #1c1c1f !important;
-    background-color: #1c1c1f !important;
-    background-image: none !important;
-    color: var(--solo-text) !important;
-    border-color: rgba(255,255,255,.08) !important;
-    box-shadow: none !important;
-    animation: none !important;
-}
-._actionContainer_9da0cc3 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
-._actionContainer_5bb1c14 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
-._actionContainer_5552083 :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use),
-._actionContainer_7bd364b :is(._marketButton_1d16h_1._primary_1d16h_6, ._marketButton_1d16h_1._secondary_1d16h_7) :is(._label_1d16h_1, svg, svg use) {
-    color: var(--solo-text) !important;
-    fill: var(--solo-text) !important;
 }
