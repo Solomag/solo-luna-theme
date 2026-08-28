@@ -2690,6 +2690,9 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] .css-1xlzpjd,
 [data-test-page-name="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
+ [data-track--page-id*="explore"] .css-1xlzpjd,
+ [data-track--page-id*="explore"] .css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
+.css-8iwxr.tidal-ui__spacer > .css-1xlzpjd.tidal-ui__button,
 ._buttonContainer_a07db07 button {
     background: var(--solo-bg) !important;
     background-color: var(--solo-bg) !important;
@@ -2708,6 +2711,8 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07 button:hover,
 [data-test-page-name="explore"] .css-1xlzpjd:hover,
+[data-track--page-id*="explore"] ._buttonContainer_a07db07 button:hover,
+[data-track--page-id*="explore"] .css-1xlzpjd:hover,
 ._buttonContainer_a07db07 button:hover {
     background: var(--solo-hover) !important;
     background-color: var(--solo-hover) !important;
@@ -2716,7 +2721,10 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 }
 
 [data-test-page-name="explore"] ._buttonContainer_a07db07,
-[data-test-page-name="explore"] .css-8iwxr {
+[data-test-page-name="explore"] .css-8iwxr,
+[data-track--page-id*="explore"] ._buttonContainer_a07db07,
+[data-track--page-id*="explore"] .css-8iwxr,
+.css-8iwxr.tidal-ui__spacer {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
@@ -2732,6 +2740,34 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
 ._icon_41aad12 {
     color: currentColor !important;
     fill: currentColor !important;
+}
+
+/* Explore uses both named page attributes and an unscoped horizontal scroller. */
+:is([data-test-page-name*="explore"], [data-track--page-id*="explore"]) {
+    background: var(--solo-bg) !important;
+    background-color: var(--solo-bg) !important;
+    background-image: none !important;
+    --wave-color-background-base: var(--solo-bg) !important;
+    --wave-color-background-fill-primary: var(--solo-bg) !important;
+}
+
+:is([data-test-page-name*="explore"], [data-track--page-id*="explore"]) :is([class*="_scrollButton_"], [class*="_navigationButton_"], [class*="_buttonContainer_"]) button,
+._buttonContainer_a07db07 > button,
+.css-1xlzpjd.tidal-ui__button {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    background: var(--solo-raised) !important;
+    background-color: var(--solo-raised) !important;
+    background-image: none !important;
+    border: 1px solid var(--solo-border) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    animation: none !important;
 }
 
 /* =========================================================
@@ -2847,7 +2883,7 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     background: #f3f3f5 !important;
 }
 
-.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht {
+.css-1m2j012, .css-1v59atl, .css-1m2uggs, .css-1l78aht, .css-16a8gxx {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -2855,16 +2891,16 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     overflow: hidden !important;
 }
 
-.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *,
+.css-1m2j012 > *, .css-1v59atl > *, .css-1m2uggs > *, .css-1l78aht > *, .css-16a8gxx > *,
 .css-1m2j012 .MuiStack-root, .css-1v59atl .MuiStack-root,
-.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root {
+.css-1m2uggs .MuiStack-root, .css-1l78aht .MuiStack-root, .css-16a8gxx .MuiStack-root {
     min-width: 0 !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
 }
 
-.css-1m2j012 a[href^="http"], .css-1v59atl a[href^="http"], .css-1m2uggs a[href^="http"], .css-1l78aht a[href^="http"],
-.css-1m2j012 p, .css-1v59atl p, .css-1m2uggs p, .css-1l78aht p {
+.css-1m2j012 a[href^="http"], .css-1v59atl a[href^="http"], .css-1m2uggs a[href^="http"], .css-1l78aht a[href^="http"], .css-16a8gxx a[href^="http"],
+.css-1m2j012 p, .css-1v59atl p, .css-1m2uggs p, .css-1l78aht p, .css-16a8gxx p {
     min-width: 0 !important;
     flex: 1 1 0 !important;
     max-width: 100% !important;
@@ -2873,8 +2909,8 @@ button._marketButton_1l1bl_1._tertiary_1l1bl_8._small_1l1bl_3._iconOnly_1l1bl_1.
     box-sizing: border-box !important;
 }
 
-.css-1m2j012 button, .css-1v59atl button, .css-1m2uggs button, .css-1l78aht button,
-.css-1m2j012 .MuiSwitch-root, .css-1v59atl .MuiSwitch-root, .css-1m2uggs .MuiSwitch-root, .css-1l78aht .MuiSwitch-root {
+.css-1m2j012 button, .css-1v59atl button, .css-1m2uggs button, .css-1l78aht button, .css-16a8gxx button,
+.css-1m2j012 .MuiSwitch-root, .css-1v59atl .MuiSwitch-root, .css-1m2uggs .MuiSwitch-root, .css-1l78aht .MuiSwitch-root, .css-16a8gxx .MuiSwitch-root {
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
     align-self: center !important;
@@ -2947,6 +2983,58 @@ body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role=
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
     text-shadow: none !important;
+}
+
+/* The artist hover preview is a portal card, not a tooltip inside the player. */
+._card_2b91b88 {
+    --wave-color-text-main: var(--solo-text) !important;
+    --wave-color-text-secondary: var(--solo-text-secondary) !important;
+    --market-core-text-10-color: var(--solo-text) !important;
+    background: var(--solo-raised) !important;
+    background-color: var(--solo-raised) !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    border: 1px solid var(--solo-border) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .45) !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    animation: none !important;
+}
+
+._card_2b91b88::before,
+._card_2b91b88::after,
+._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"])::before,
+._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"])::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+._card_2b91b88 :is([class*="_content_"], [class*="_description_"], [class*="_biography_"]) {
+    background: var(--solo-raised) !important;
+    background-color: var(--solo-raised) !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+._card_2b91b88 :is(.wave-text-description-demi, ._marketText_1lyag_1, p, span, a) {
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+    text-shadow: none !important;
+}
+
+._card_2b91b88 :is(button, [role="button"]) {
+    background: var(--solo-hover) !important;
+    background-color: var(--solo-hover) !important;
+    background-image: none !important;
+    color: var(--solo-text) !important;
+    border-color: var(--solo-border) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
 }
 
 /* QUALITY BADGES */
@@ -3037,6 +3125,31 @@ body > :is(._marketTooltipContainer_1qti9_1, [class*="_tooltipContainer_"][role=
     --trackseltxt: var(--solo-text) !important;
     --wave-color-text-main: var(--solo-text) !important;
     --wave-color-text-secondary: var(--solo-text-secondary) !important;
+    background: var(--solo-hover) !important;
+    background-color: var(--solo-hover) !important;
+    background-image: none !important;
+    border: none !important;
+    border-image: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: background-color 120ms ease !important;
+}
+
+/* Remove the framed panel inherited from the original TRACK_LIST module. */
+[class*="TRACK_LIST"].tidal-ui__occlusion,
+._tableContainer_556e9aa,
+._mediaTable_8895569,
+._container_928ac6c {
+    border: none !important;
+    border-color: transparent !important;
+    border-width: 0 !important;
+    border-image: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
 }
 
 ._tableRow_299a426._tableRowSelected_fb04c2a ._artistText_a1c7611,
@@ -3297,11 +3410,28 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
 }
 
 [data-test-page-name="my-collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
-[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover [class*="_overlay_"] {
+[data-track--page-id^="mycollection_"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
+[data-test-page-name*="collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"],
+[data-track--page-id*="collection"] ._cellContainer_19b23ad:hover [class*="_overlay_"] {
     background: transparent !important;
     background-image: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    filter: none !important;
+}
+
+:is([data-test-page-name*="collection"], [data-track--page-id*="collection"]) :is(._cellContainer_19b23ad, ._card_38c6c04):hover :is(img, picture, [class*="_cellImage_"], [class*="_coverImage_"], [class*="_thumbnail_"], [class*="_imageWrapper_"]) {
     opacity: 1 !important;
     visibility: visible !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
+:is([data-test-page-name*="collection"], [data-track--page-id*="collection"]) :is(._cellContainer_19b23ad, ._card_38c6c04):hover :is([class*="_overlay_"], [class*="_scrim_"]) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    background: transparent !important;
+    background-image: none !important;
     filter: none !important;
 }
 
