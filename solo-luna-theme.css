@@ -3459,59 +3459,89 @@ div._cellCoverContainer_b517623 > a > div > svg > use,
     text-overflow: ellipsis !important;
 }
 
-/* Фикс цвета текста лейбла при фокусе на инпут */
-.luna-settings-input-container:focus-within label,
-.luna-input-wrapper input:focus ~ label {
-    color: var(--text-primary, #ffffff) !important; 
+/* 1. ИНПУТ "INSTALL FROM URL" (Фикс черного текста) */
+/* Бьем по всем label внутри инпутов в настройках */
+[class*="input"]:focus-within label,
+[class*="input"]:focus ~ label,
+[class*="textField"]:focus-within label,
+.luna-setting-label,
+label {
+    color: var(--text-primary, #ffffff) !important;
 }
 
-/* Фикс прыгающих кнопок в списке тем/плагинов */
-.luna-theme-item, 
-.luna-plugin-item,
-[class*="SettingRow"] {
+/* 2. ЕДУЩИЕ КНОПКИ В ТЕМАХ */
+/* Ищем любые ряды и карточки в настройках Luna и жестко выстраиваем их во flex */
+[class*="luna-theme-"],
+[class*="luna-plugin-"],
+div[class*="settingRow"],
+div[class*="SettingsItem"] {
     display: flex !important;
-    align-items: center !important; /* Центрируем всё по вертикали */
+    align-items: center !important;
     justify-content: space-between !important;
-    height: auto !important;
-    min-height: 48px; /* Задаем адекватную минимальную высоту */
+    min-height: 48px !important;
+}
+/* Контейнер самих кнопок (свитчер, рефреш, корзина) — собираем их в кучу */
+div[class*="actions"],
+div[class*="buttons"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important; 
 }
 
-/* Фикс фона для Explore, чтобы он сливался с остальным приложением */
-[data-test="explore-page"],
-#main-wrapper [class*="explore"] {
-    background: transparent !important;
+/* 3. EXPLORE ФОН И УЕБАНСКИЕ СТРЕЛКИ */
+/* Убиваем фон эксплора */
+[data-test-page-name="explore"],
+[class*="explorePage"],
+[class*="exploreContainer"],
+main[class*="main_"] {
     background-color: transparent !important;
+    background-image: none !important;
 }
-
-/* Причесываем стрелки карусели */
-button[data-test="carousel-right-arrow"], 
-button[data-test="carousel-left-arrow"] {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* Легкий полупрозрачный фон */
-    border-radius: 50% !important; /* Делаем их круглыми */
-    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Аккуратная рамка */
-    backdrop-filter: blur(4px) !important;
+/* Стрелки (превращаем черные квадраты в нормальные полупрозрачные круги) */
+button[aria-label="Next"],
+button[aria-label="Previous"],
+[class*="carousel"] button,
+[class*="slider"] button {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
     box-shadow: none !important;
+    width: 40px !important;
+    height: 40px !important;
+    backdrop-filter: blur(4px) !important;
+}
+button[aria-label="Next"]:hover,
+button[aria-label="Previous"]:hover,
+[class*="carousel"] button:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-button[data-test="carousel-right-arrow"]:hover, 
-button[data-test="carousel-left-arrow"]:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Фикс затемнения обложек */
-[data-test="grid-item"]:hover [class*="image-overlay"],
-[data-test="image-wrapper"]:hover::after,
-[class*="media-item"]:hover [class*="overlay"] {
-    background-color: rgba(0, 0, 0, 0.5) !important; /* 50% затемнения вместо глухого черного */
+/* 4. ЗАТЕМНЕНИЕ В COLLECTION */
+/* Ловим любые оверлеи внутри ячеек при наведении */
+[class*="cellContainer"]:hover [class*="overlay"],
+[class*="cellContainer"]:hover [class*="imageOverlay"],
+[class*="cellContainer"]:hover::after,
+[class*="imageWrapper"]:hover::after {
+    background-color: rgba(0, 0, 0, 0.4) !important; /* 40% прозрачности вместо глухого черного */
     opacity: 1 !important;
 }
 
-/* Убираем рамку и засвет с выделенного трека */
-[data-test="tracklist-row"].selected,
-[data-test="tracklist-row"]:focus-within,
-[data-test="tracklist-row"][aria-selected="true"] {
+/* 5. РАМКА И ЗАСВЕТ В ТРЕКАХ */
+/* Выкашиваем рамку на всех видах выделенных строк */
+[class*="trackListRow"]:focus-within,
+[class*="trackListRow"][aria-selected="true"],
+[class*="trackListRow"].selected,
+[data-test="tracklist-row"]:focus-within {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.06) !important; /* Легкая подсветка вместо вырвиглазной */
+}
+/* На случай если рамка сделана через pseudo-элементы */
+[class*="trackListRow"]:focus-within::after,
+[class*="trackListRow"][aria-selected="true"]::after,
+[class*="trackListRow"].selected::after {
     border: none !important;
     box-shadow: none !important;
-    outline: none !important;
-    background-color: rgba(255, 255, 255, 0.08) !important; /* Легкая подсветка фона вместо рамки */
+    display: none !important;
 }
