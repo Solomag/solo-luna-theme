@@ -3620,19 +3620,16 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
 
 
 /* =========================================================
-   SOLO v5.2 — TARGETED REPAIR PATCH
-   Uses the current Luna DOM captured on 2026-08-28.
-   No global card/button/track overrides.
+   SOLO v5.2 — CONFIRMED TARGETED REPAIR
    ========================================================= */
 
-/* 1. Themes / "Install from URL": fixed label above the field. */
+/* Themes / "Install from URL": fixed label above the field. */
 .MuiTextField-root.css-1vbfw84 {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
     grid-template-rows: auto auto !important;
     row-gap: 6px !important;
 }
-
 .MuiTextField-root.css-1vbfw84 > .MuiInputLabel-root {
     position: static !important;
     grid-row: 1 !important;
@@ -3649,18 +3646,14 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     -webkit-text-fill-color: var(--solo-text-secondary) !important;
     pointer-events: none !important;
 }
-
 .MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root {
     grid-row: 2 !important;
     grid-column: 1 !important;
     margin: 0 !important;
 }
+.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend { max-width: 0 !important; }
 
-.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline legend {
-    max-width: 0 !important;
-}
-
-/* 2. Themes / Plugins rows: one stretchable URL/title column + fixed controls. */
+/* Themes rows: stable URL/title + controls layout. */
 .MuiStack-root.css-1mzerio {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto auto auto !important;
@@ -3671,13 +3664,11 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     min-width: 0 !important;
     box-sizing: border-box !important;
 }
-
 .MuiStack-root.css-1mzerio > .MuiTypography-root {
     min-width: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;
 }
-
 .MuiStack-root.css-1mzerio > .MuiTypography-root > a {
     display: block !important;
     min-width: 0 !important;
@@ -3685,7 +3676,6 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
 }
-
 .MuiStack-root.css-1mzerio > .MuiSwitch-root,
 .MuiStack-root.css-1mzerio > .MuiIconButton-root,
 .MuiStack-root.css-1mzerio > .MuiBox-root {
@@ -3696,53 +3686,9 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     margin: 0 !important;
     transform: none !important;
 }
+.MuiStack-root.css-1mzerio > .MuiSwitch-root { display: inline-flex !important; align-items: center !important; }
 
-.MuiStack-root.css-1mzerio > .MuiSwitch-root {
-    display: inline-flex !important;
-    align-items: center !important;
-}
-
-/* 3. Explore: cards are #09090b; arrows retain transparent background. */
-[data-test-page-name="explore"] ._item_235a32d,
-[data-test-page-name="explore"] ._card_38c6c04 {
-    background: #09090b !important;
-    background-color: #09090b !important;
-    background-image: none !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-[data-test-page-name="explore"] ._item_235a32d:hover,
-[data-test-page-name="explore"] ._card_38c6c04:hover {
-    background: #09090b !important;
-    background-color: #09090b !important;
-}
-
-[data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    align-self: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: translateY(0) !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    line-height: 1 !important;
-}
-
-[data-test-page-name="explore"] :is(button._rightButton_8329f20, button[class*="_rightButton_"], button[class*="_leftButton_"]) > svg {
-    display: block !important;
-    margin: 0 !important;
-    transform: none !important;
-}
-
-/* 4. Tracklist: only the actual playing row is highlighted.
-   The copied playing-row DOM exposes data-test-is-playing="true". */
+/* Playing track is visibly distinct without affecting unplayed-row controls. */
 [data-test="tracklist-row"][data-test-is-playing="true"] {
     background: rgba(255, 255, 255, .08) !important;
     background-color: rgba(255, 255, 255, .08) !important;
@@ -3751,21 +3697,10 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     box-shadow: none !important;
     animation: none !important;
 }
-
-[data-test="tracklist-row"][data-test-is-playing="true"] :is(
-    ._titleText_51cccae,
-    ._artistText_a1c7611,
-    ._artistText_a1c7611 a,
-    ._albumText_ddf6a0e,
-    ._timeColumn_f70e963 time,
-    ._dateAddedColumn_87dfbd3 time,
-    ._indexNumber_de640b9
-) {
+[data-test="tracklist-row"][data-test-is-playing="true"] :is(._titleText_51cccae, ._artistText_a1c7611, ._artistText_a1c7611 a, ._albumText_ddf6a0e, ._timeColumn_f70e963 time, ._dateAddedColumn_87dfbd3 time, ._indexNumber_de640b9) {
     color: var(--solo-text) !important;
     -webkit-text-fill-color: var(--solo-text) !important;
 }
-
-/* The volume icon stays in its normal overlay position; do not force it to block. */
 [data-test="tracklist-row"][data-test-is-playing="true"] ._overlayIconWrapper_6331eb1,
 [data-test="tracklist-row"][data-test-is-playing="true"] ._indexCellPlaybackVolumeMaxIconContainer_71bb86c {
     display: flex !important;
@@ -3775,14 +3710,116 @@ div[data-test-is-playing="true"] ._overlayIconWrapper_6331eb1 * {
     opacity: 1 !important;
     transform: none !important;
 }
-
 [data-test="tracklist-row"][data-test-is-playing="true"] ._backgroundMax_6e0bc55,
 [data-test="tracklist-row"][data-test-is-playing="true"] ._backgroundMax_6e0bc55 use {
     fill: var(--solo-text) !important;
     color: var(--solo-text) !important;
 }
 
-/* A selected but non-playing row must not borrow the playing-row styling. */
-[data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a {
+
+/* =========================================================
+   SOLO v5.2 — ITERATION 2
+   ========================================================= */
+
+/* 1. Keep the now-working URL field, but remove the old lavender fill. */
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root,
+.MuiTextField-root.css-1vbfw84 > .MuiOutlinedInput-root > input {
+    background: #09090b !important;
+    background-color: #09090b !important;
     background-image: none !important;
+    color: var(--solo-text) !important;
+    -webkit-text-fill-color: var(--solo-text) !important;
+}
+.MuiTextField-root.css-1vbfw84 .MuiOutlinedInput-notchedOutline {
+    border-color: rgba(255, 255, 255, .08) !important;
+}
+
+/* 2. Plugins: current rows contain title + switch + two buttons + author box.
+   Put the author box on its own compact lower line instead of in the control row. */
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]),
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto auto !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+    row-gap: 2px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiTypography-root,
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiTypography-root {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiSwitch-root,
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiSwitch-root {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+}
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiIconButton-root[aria-label="Reload plugin"],
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiIconButton-root[aria-label="Uninstall plugin"] {
+    grid-row: 1 !important;
+}
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiIconButton-root[aria-label="Reload plugin"] { grid-column: 3 !important; }
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiIconButton-root[aria-label="Uninstall plugin"] { grid-column: 4 !important; }
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiBox-root,
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiBox-root {
+    grid-column: 2 / 5 !important;
+    grid-row: 2 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Reload plugin"]) > .MuiBox-root :is(span, p, a),
+.MuiStack-root:has(> .MuiIconButton-root[aria-label="Uninstall plugin"]) > .MuiBox-root :is(span, p, a) {
+    white-space: nowrap !important;
+}
+
+/* 3. Explore: target the actual horizontal-card surface, not generic card wrappers.
+   Arrows retain full transparency and only receive vertical alignment. */
+[data-test-page-name="explore"] ._item_235a32d,
+[data-test-page-name="explore"] ._item_235a32d > *,
+[data-test-page-name="explore"] ._item_235a32d [class*="_content_"] {
+    background-color: #09090b !important;
+    background-image: none !important;
+}
+[data-test-page-name="explore"] button._rightButton_8329f20._button_f3463fe,
+[data-test-page-name="explore"] button[class*="_leftButton_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateY(0) !important;
+    align-self: center !important;
+}
+[data-test-page-name="explore"] ._buttonContainer_a07db07 {
+    display: flex !important;
+    align-items: center !important;
+    align-self: center !important;
+    transform: none !important;
+}
+
+/* 4. Differentiate transient/manual selection from actual playback.
+   Playing is deliberately brighter; selected-but-not-playing is subtle. */
+[data-test="tracklist-row"][data-test-is-playing="true"] {
+    background: rgba(255, 255, 255, .12) !important;
+    background-color: rgba(255, 255, 255, .12) !important;
+}
+[data-test="tracklist-row"][data-test-is-playing="false"]._tableRowSelected_fb04c2a,
+[data-test="tracklist-row"][data-test-is-playing="false"][aria-selected="true"] {
+    background: rgba(255, 255, 255, .035) !important;
+    background-color: rgba(255, 255, 255, .035) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    animation: none !important;
 }
